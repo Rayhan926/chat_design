@@ -13625,11 +13625,35 @@ module.exports = __webpack_require__(/*! /home/travis/build/feathericons/feather
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.change_placeholder_all = exports.toggle_login_signup_section = exports.hide_profile_image_view_in_full_screen_mode = exports.profile_image_view_in_full_screen_mode = exports.force_hide_profile_image_view_mode = exports.hide_profile_image_view_mode = exports.profile_image_view_mode = exports.change_placeholder = exports.hide_seacrh_input = exports.show_seacrh_input = exports.set_Active_Tab_Bottom_Bar_Posotion = exports.set_ripple = exports.outside_close = exports.dropdown_autoset = void 0;
+exports.chating_hash = exports.close_chating_section = exports.open_chating_section = exports.change_placeholder_all = exports.toggle_login_signup_section = exports.hide_profile_image_view_in_full_screen_mode = exports.img_in_fullscreen_hash = exports.profile_image_view_in_full_screen_mode = exports.force_hide_profile_image_view_mode = exports.hide_profile_image_view_mode = exports.view_profile_img_hash = exports.profile_image_view_mode = exports.change_placeholder = exports.hide_seacrh_input = exports.show_seacrh_input = exports.tab_3_hash = exports.tab_2_hash = exports.tab_1_hash = exports.set_Active_Tab_Bottom_Bar_Posotion = exports.set_ripple = exports.outside_close = exports.dropdown_autoset = exports.search_bar_hash = exports.get_hash = exports.set_hash = void 0;
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var set_hash = function set_hash(e) {
+  window.location.hash = e;
+};
+
+exports.set_hash = set_hash;
+
+var get_hash = function get_hash(e) {
+  var hashIs = window.location.hash;
+
+  if (e) {
+    if (hashIs === "#" + e) return true;else return false;
+  } else {
+    return hashIs;
+  }
+};
+
+exports.get_hash = get_hash;
+
+var search_bar_hash = function search_bar_hash() {
+  get_hash("search") ? show_seacrh_input() : hide_seacrh_input();
+};
+
+exports.search_bar_hash = search_bar_hash;
 
 var dropdown_autoset = function dropdown_autoset(e, downClass, upClass) {
   var upperClass = upClass ? upClass : "";
@@ -13651,12 +13675,11 @@ var dropdown_autoset = function dropdown_autoset(e, downClass, upClass) {
 
 exports.dropdown_autoset = dropdown_autoset;
 
-var outside_close = function outside_close(click_on, close_to, close_class, e, hashUrl) {
+var outside_close = function outside_close(click_on, close_to, close_class, e) {
   var trigger = (0, _jquery.default)(click_on);
 
   if (trigger !== e.target && trigger.has(e.target).length === 0) {
     (0, _jquery.default)(close_to).removeClass(close_class);
-    if (hashUrl && hashUrl === get_hash()) history.pushState("", document.title, window.location.pathname + window.location.search);
   }
 };
 
@@ -13700,19 +13723,40 @@ var set_ripple = function set_ripple(e) {
 
 exports.set_ripple = set_ripple;
 
-var set_Active_Tab_Bottom_Bar_Posotion = function set_Active_Tab_Bottom_Bar_Posotion() {
+var set_Active_Tab_Bottom_Bar_Posotion = function set_Active_Tab_Bottom_Bar_Posotion(transitionPer) {
   var thisTabFromLeft = document.querySelector(".swiper-pagination-bullet-active").getBoundingClientRect();
   var paginationWrapFromLeft = document.querySelector(".swiper-pagination").getBoundingClientRect();
   var result = thisTabFromLeft.left - paginationWrapFromLeft.left + "px";
+  var isTransition = transitionPer ? "0s" : "all 0.3s ease";
   (0, _jquery.default)(".active_tab_bottom_bar").css({
     left: result,
-    width: thisTabFromLeft.width + "px"
+    width: thisTabFromLeft.width + "px",
+    transition: isTransition
   });
 };
 
 exports.set_Active_Tab_Bottom_Bar_Posotion = set_Active_Tab_Bottom_Bar_Posotion;
 
+var tab_1_hash = function tab_1_hash() {
+  get_hash("chats") ? (0, _jquery.default)("#tab_no_0").trigger("click") : null;
+};
+
+exports.tab_1_hash = tab_1_hash;
+
+var tab_2_hash = function tab_2_hash() {
+  get_hash("requests") ? (0, _jquery.default)("#tab_no_1").trigger("click") : null;
+};
+
+exports.tab_2_hash = tab_2_hash;
+
+var tab_3_hash = function tab_3_hash() {
+  get_hash("sendRequests") ? (0, _jquery.default)("#tab_no_2").trigger("click") : null;
+};
+
+exports.tab_3_hash = tab_3_hash;
+
 var show_seacrh_input = function show_seacrh_input() {
+  set_hash("search");
   (0, _jquery.default)(".header_search_wrap").addClass("show");
   (0, _jquery.default)(".header_search_wrap input").trigger("focus");
   (0, _jquery.default)(".swiper-pagination").addClass("hide");
@@ -13735,10 +13779,10 @@ var change_placeholder = function change_placeholder(val) {
 };
 
 exports.change_placeholder = change_placeholder;
-var currentLeft, currentTop, currentWidth, currentHeight;
+var currentLeft, currentTop, currentWidth, currentHeight, prevImgElm;
 
 var profile_image_view_mode = function profile_image_view_mode(e) {
-  force_hide_profile_image_view_mode();
+  prevImgElm = e;
   var thisElm = e.currentTarget;
 
   if (!(0, _jquery.default)(thisElm).hasClass("view_photo_mode")) {
@@ -13765,9 +13809,17 @@ var profile_image_view_mode = function profile_image_view_mode(e) {
       });
     }, 20);
   }
+
+  set_hash("viewProfileImg");
 };
 
 exports.profile_image_view_mode = profile_image_view_mode;
+
+var view_profile_img_hash = function view_profile_img_hash() {
+  get_hash("viewProfileImg") ? null : force_hide_profile_image_view_mode();
+};
+
+exports.view_profile_img_hash = view_profile_img_hash;
 
 var hide_profile_image_view_mode = function hide_profile_image_view_mode(e) {
   if ((0, _jquery.default)(e.target).hasClass("profile_img_view_mode_section")) {
@@ -13800,11 +13852,19 @@ var force_hide_profile_image_view_mode = function force_hide_profile_image_view_
     left: currentLeft,
     top: currentTop
   });
+  setTimeout(function () {
+    (0, _jquery.default)(".profile_img_view_mode_section").animate({
+      opacity: "0"
+    }, 200, function () {
+      (0, _jquery.default)(".profile_img_view_mode_section").remove();
+    });
+  }, 200);
 };
 
 exports.force_hide_profile_image_view_mode = force_hide_profile_image_view_mode;
 
 var profile_image_view_in_full_screen_mode = function profile_image_view_in_full_screen_mode(e) {
+  set_hash("ImgInFullScreen");
   var imgSrc = (0, _jquery.default)(e.currentTarget).find("img").attr("src");
   var compo = "<div class=\"bg_black_full\">\n  <div class=\"bg_black_btn_wrap\">\n    <button data-ripple>\n      <i data-feather=\"arrow-left\"></i>\n    </button>\n  </div>\n  <img src=\"".concat(imgSrc, "\" alt=\"Me\" />\n</div>");
   (0, _jquery.default)(".chat_wrapper").append(compo);
@@ -13812,7 +13872,13 @@ var profile_image_view_in_full_screen_mode = function profile_image_view_in_full
 
 exports.profile_image_view_in_full_screen_mode = profile_image_view_in_full_screen_mode;
 
-var hide_profile_image_view_in_full_screen_mode = function hide_profile_image_view_in_full_screen_mode(e) {
+var img_in_fullscreen_hash = function img_in_fullscreen_hash() {
+  get_hash("ImgInFullScreen") ? null : hide_profile_image_view_in_full_screen_mode();
+};
+
+exports.img_in_fullscreen_hash = img_in_fullscreen_hash;
+
+var hide_profile_image_view_in_full_screen_mode = function hide_profile_image_view_in_full_screen_mode() {
   (0, _jquery.default)(".bg_black_full").animate({
     left: "100%"
   }, 200, function () {
@@ -13839,6 +13905,25 @@ var change_placeholder_all = function change_placeholder_all() {
 };
 
 exports.change_placeholder_all = change_placeholder_all;
+
+var open_chating_section = function open_chating_section() {
+  set_hash("chating");
+  (0, _jquery.default)(".chating_wrap").addClass("show");
+};
+
+exports.open_chating_section = open_chating_section;
+
+var close_chating_section = function close_chating_section() {
+  (0, _jquery.default)(".chating_wrap").removeClass("show");
+};
+
+exports.close_chating_section = close_chating_section;
+
+var chating_hash = function chating_hash() {
+  get_hash("chating") ? open_chating_section() : close_chating_section();
+};
+
+exports.chating_hash = chating_hash;
 },{"jquery":"../node_modules/jquery/dist/jquery.js"}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13852,6 +13937,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // const socket = io("http://localhost:3001");
 // socket.on("connection");
+// search_bar_hash();
+// chating_hash();
+// view_profile_img_hash();
+// tab_1_hash();
+// tab_2_hash();
+// tab_3_hash();
 // Animated Input Events Start
 var parentDiv = ".input_filed_wrap";
 (0, _jquery.default)(document).on("focus", "".concat(parentDiv, " input"), function (e) {
@@ -13903,19 +13994,22 @@ var parentDiv = ".input_filed_wrap";
 }); // Changing Search Bar Placehoder On Pagination Click
 
 (0, _jquery.default)(document).on("click", "#tab_no_0", function () {
-  (0, _functions.change_placeholder)("Search..");
+  (0, _functions.change_placeholder)("Search.."); // set_hash("chats");
 });
 (0, _jquery.default)(document).on("click", "#tab_no_1", function () {
-  (0, _functions.change_placeholder)("Search request");
+  (0, _functions.change_placeholder)("Search request"); // set_hash("requests");
 });
-(0, _jquery.default)(document).on("click", "#tab_no_2, .search_friends_wrap", function () {
+(0, _jquery.default)(document).on("click", "#tab_no_2", function () {
+  (0, _functions.change_placeholder)("Find friends by username"); // set_hash("sendRequests");
+});
+(0, _jquery.default)(".search_friends_wrap").on("click", function () {
   (0, _functions.change_placeholder)("Find friends by username");
 });
-(0, _jquery.default)(".chat_click_ripple_wrap").on("click", function (e) {
-  (0, _jquery.default)(".chating_wrap").addClass("show");
+(0, _jquery.default)(".chat_click_ripple_wrap").on("click", function () {
+  (0, _functions.open_chating_section)();
 });
 (0, _jquery.default)(".chating_header_wrap .back_button_box").on("click", function () {
-  (0, _jquery.default)(".chating_wrap").removeClass("show");
+  (0, _functions.close_chating_section)();
 });
 var wrap = ".dropdown_component_wrap";
 (0, _jquery.default)(wrap).on("click", function (e) {
@@ -13942,8 +14036,18 @@ var wrap = ".dropdown_component_wrap";
 (0, _jquery.default)(window).on("resize", function () {
   setTimeout(function () {
     // $("#tab_no_2").append(`<div class="unseen_chat_counter_box">2</div>`);
-    (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)();
+    (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)(true);
   }, 10);
+}); // Windows All Hash Function
+
+(0, _jquery.default)(window).on("hashchange", function () {
+  (0, _functions.search_bar_hash)();
+  (0, _functions.chating_hash)();
+  (0, _functions.view_profile_img_hash)();
+  (0, _functions.tab_1_hash)();
+  (0, _functions.tab_2_hash)();
+  (0, _functions.tab_3_hash)();
+  (0, _functions.img_in_fullscreen_hash)();
 });
 (0, _jquery.default)(".go_to_next_step_box button").click(function () {
   (0, _jquery.default)(".signup_step_wrapper").toggleClass("active_step_two");
@@ -13956,17 +14060,20 @@ var swiper = new Swiper(".swiper-container", {
     var tabsName = ["Chats", "Requests", "Send Request"];
 
     if (index === tabsName.length - 1) {
-      return "<span class=\"".concat(className, "\" data-ripple id=\"tab_no_").concat(index, "\">").concat(tabsName[index], "</span>") + '<div class="active_tab_bottom_bar"></div>';
+      return "<span class=\"".concat(className, "\" id=\"tab_no_").concat(index, "\">").concat(tabsName[index], "</span>") + '<div class="active_tab_bottom_bar"></div>';
     }
 
-    return "<span class=\"".concat(className, "\" data-ripple id=\"tab_no_").concat(index, "\">").concat(tabsName[index], "</span>");
+    return "<span class=\"".concat(className, "\" id=\"tab_no_").concat(index, "\">").concat(tabsName[index], "</span>");
   }
 });
 swiper.on("transitionEnd", function () {
   (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)();
-  (0, _functions.hide_profile_image_view_mode)();
   (0, _functions.change_placeholder_all)();
+  if ((0, _jquery.default)(".swiper-pagination-bullet-active").attr("id") == "tab_no_0") (0, _functions.set_hash)("chats");
+  if ((0, _jquery.default)(".swiper-pagination-bullet-active").attr("id") == "tab_no_1") (0, _functions.set_hash)("requests");
+  if ((0, _jquery.default)(".swiper-pagination-bullet-active").attr("id") == "tab_no_2") (0, _functions.set_hash)("sendRequests");
 });
+(0, _functions.set_hash)("chats");
 
 _featherIcons.default.replace();
 
@@ -14001,7 +14108,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9238" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9880" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
