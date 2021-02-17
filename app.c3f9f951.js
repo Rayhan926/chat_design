@@ -13663,15 +13663,13 @@ var outside_close = function outside_close(click_on, close_to, close_class, e, h
 exports.outside_close = outside_close;
 
 var set_ripple = function set_ripple(e) {
-  var pos = (0, _jquery.default)(e.currentTarget).css("position"); // let flow = $(this).css("overflow");
-
+  var pos = (0, _jquery.default)(e.currentTarget).css("position");
   var fPos = pos == "absolute" ? "absolute" : "relative";
   var oFlow = "hidden";
   (0, _jquery.default)(e.currentTarget).css({
     overflow: oFlow,
     position: fPos
-  }); // $(e.currentTarget).find(".ripple_span").remove();
-
+  });
   var cstmBg = (0, _jquery.default)(e.currentTarget).data("ripple-bg");
 
   if (cstmBg) {
@@ -13704,8 +13702,7 @@ exports.set_ripple = set_ripple;
 
 var set_Active_Tab_Bottom_Bar_Posotion = function set_Active_Tab_Bottom_Bar_Posotion() {
   var thisTabFromLeft = document.querySelector(".swiper-pagination-bullet-active").getBoundingClientRect();
-  var paginationWrapFromLeft = document.querySelector(".swiper-pagination").getBoundingClientRect(); // console.log(thisTabFromLeft, paginationWrapFromLeft.left);
-
+  var paginationWrapFromLeft = document.querySelector(".swiper-pagination").getBoundingClientRect();
   var result = thisTabFromLeft.left - paginationWrapFromLeft.left + "px";
   (0, _jquery.default)(".active_tab_bottom_bar").css({
     left: result,
@@ -13738,22 +13735,34 @@ var change_placeholder = function change_placeholder(val) {
 };
 
 exports.change_placeholder = change_placeholder;
+var currentLeft, currentTop, currentWidth, currentHeight;
 
 var profile_image_view_mode = function profile_image_view_mode(e) {
+  force_hide_profile_image_view_mode();
   var thisElm = e.currentTarget;
 
   if (!(0, _jquery.default)(thisElm).hasClass("view_photo_mode")) {
-    var container = document.querySelector(".swiper-wrapper").getBoundingClientRect();
+    var container = document.querySelector(".chat_wrapper").getBoundingClientRect();
     var thisElmRect = thisElm.getBoundingClientRect();
-    var topPos = container.top - thisElmRect.top + 80 + "px";
-    var leftPos = container.width / 2 - thisElmRect.width / 2 - 8 + "px";
-    force_hide_profile_image_view_mode();
-    (0, _jquery.default)(thisElm).parents(".swiper-slide").find(".black_overly").addClass("show");
-    (0, _jquery.default)(thisElm).addClass("view_photo_mode").css({
-      transform: "translateX(".concat(leftPos, ") translateY(").concat(topPos, ") scale(3.8)")
-    });
+    currentLeft = thisElmRect.left - container.left + "px";
+    currentTop = thisElmRect.top - container.top + "px";
+    currentWidth = thisElmRect.width + "px";
+    currentHeight = thisElmRect.height + "px";
+    var imgSrc = (0, _jquery.default)(thisElm).find("img").attr("src");
+    var compo = "<section class=\"profile_img_view_mode_section\">\n                  <div class=\"img_container\" style=\"left: ".concat(currentLeft, "; top: ").concat(currentTop, "; width: ").concat(currentWidth, "; height: ").concat(currentHeight, " \">\n                    <img src=\"").concat(imgSrc, "\" alt=\"Image\" />\n                  </div>\n                </section>");
+    (0, _jquery.default)(".chat_wrapper").append(compo);
+    var widthBig = container.width / 100 * 55;
+    var topPos = container.height / 2 - widthBig / 2 + "px";
+    var leftPos = container.width / 2 - widthBig / 2 + "px";
     setTimeout(function () {
-      (0, _jquery.default)(thisElm).attr("data-modeis", "viewmode");
+      (0, _jquery.default)(".profile_img_view_mode_section .img_container").css({
+        width: widthBig + "px",
+        height: widthBig + "px",
+        borderRadius: "0px",
+        left: leftPos,
+        top: topPos,
+        opacity: "1"
+      });
     }, 20);
   }
 };
@@ -13761,21 +13770,36 @@ var profile_image_view_mode = function profile_image_view_mode(e) {
 exports.profile_image_view_mode = profile_image_view_mode;
 
 var hide_profile_image_view_mode = function hide_profile_image_view_mode(e) {
-  if ((0, _jquery.default)(e.target).hasClass("show")) {
-    (0, _jquery.default)(".black_overly").removeClass("show");
-    (0, _jquery.default)(".chat_image_box").removeClass("view_photo_mode").css({
-      transform: "unset"
-    }).attr("data-modeis", "normal");
+  if ((0, _jquery.default)(e.target).hasClass("profile_img_view_mode_section")) {
+    (0, _jquery.default)(".profile_img_view_mode_section .img_container").css({
+      width: currentWidth,
+      height: currentHeight,
+      borderRadius: "50%",
+      left: currentLeft,
+      top: currentTop // opacity: "0",
+
+    });
   }
+
+  setTimeout(function () {
+    (0, _jquery.default)(".profile_img_view_mode_section").animate({
+      opacity: "0"
+    }, 200, function () {
+      (0, _jquery.default)(".profile_img_view_mode_section").remove();
+    });
+  }, 200);
 };
 
 exports.hide_profile_image_view_mode = hide_profile_image_view_mode;
 
 var force_hide_profile_image_view_mode = function force_hide_profile_image_view_mode() {
-  (0, _jquery.default)(".black_overly").removeClass("show");
-  (0, _jquery.default)(".chat_image_box").removeClass("view_photo_mode").css({
-    transform: "unset"
-  }).attr("data-modeis", "normal");
+  (0, _jquery.default)(".profile_img_view_mode_section .img_container").css({
+    width: currentWidth,
+    height: currentHeight,
+    borderRadius: "50%",
+    left: currentLeft,
+    top: currentTop
+  });
 };
 
 exports.force_hide_profile_image_view_mode = force_hide_profile_image_view_mode;
@@ -13784,19 +13808,17 @@ var profile_image_view_in_full_screen_mode = function profile_image_view_in_full
   var imgSrc = (0, _jquery.default)(e.currentTarget).find("img").attr("src");
   var compo = "<div class=\"bg_black_full\">\n  <div class=\"bg_black_btn_wrap\">\n    <button data-ripple>\n      <i data-feather=\"arrow-left\"></i>\n    </button>\n  </div>\n  <img src=\"".concat(imgSrc, "\" alt=\"Me\" />\n</div>");
   (0, _jquery.default)(".chat_wrapper").append(compo);
-  setTimeout(function () {
-    (0, _jquery.default)(".bg_black_full").addClass("show");
-  }, 10);
 };
 
 exports.profile_image_view_in_full_screen_mode = profile_image_view_in_full_screen_mode;
 
 var hide_profile_image_view_in_full_screen_mode = function hide_profile_image_view_in_full_screen_mode(e) {
-  (0, _jquery.default)(".bg_black_full").removeClass("show");
-  setTimeout(function () {
+  (0, _jquery.default)(".bg_black_full").animate({
+    left: "100%"
+  }, 200, function () {
     (0, _jquery.default)(".bg_black_full img").attr("src", "");
     (0, _jquery.default)(".bg_black_full").remove();
-  }, 350);
+  });
 };
 
 exports.hide_profile_image_view_in_full_screen_mode = hide_profile_image_view_in_full_screen_mode;
@@ -13830,6 +13852,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // const socket = io("http://localhost:3001");
 // socket.on("connection");
+// Animated Input Events Start
 var parentDiv = ".input_filed_wrap";
 (0, _jquery.default)(document).on("focus", "".concat(parentDiv, " input"), function (e) {
   (0, _jquery.default)(e.currentTarget).parents(parentDiv).addClass("focused");
@@ -13840,36 +13863,45 @@ var parentDiv = ".input_filed_wrap";
   var parent = (0, _jquery.default)(e.currentTarget).parents(parentDiv);
   parent.removeClass("focused inputFilled");
   thisVal !== "" ? parent.addClass("inputFilled") : null;
-});
+}); // Animated Input Events End
+// Profile Image View Mode On
+
 (0, _jquery.default)(".chat_image_box").on("click", function (e) {
   (0, _functions.profile_image_view_mode)(e);
-});
-(0, _jquery.default)(".black_overly").on("click", function (e) {
+}); // Profile Image View Mode Off
+
+(0, _jquery.default)(document).on("click", ".profile_img_view_mode_section", function (e) {
   (0, _functions.hide_profile_image_view_mode)(e);
-});
+}); // Show Header Search Bar
+
 (0, _jquery.default)(".header_search_icon_wrap").on("click", function () {
   (0, _functions.show_seacrh_input)();
 });
 (0, _jquery.default)(".search_friends_wrap").on("click", function () {
   (0, _functions.show_seacrh_input)();
-});
+}); // Hide Header Search Bar
+
 (0, _jquery.default)(".back_to_search_box").on("click", function () {
   (0, _functions.hide_seacrh_input)();
-});
-(0, _jquery.default)(document).on("click", ".chat_image_box", function (e) {
-  if ((0, _jquery.default)(e.currentTarget).attr("data-modeis") == "viewmode") {
-    (0, _functions.force_hide_profile_image_view_mode)();
-    (0, _functions.profile_image_view_in_full_screen_mode)(e);
+}); // Profile Image View Mode On Full Screen Mode
 
-    _featherIcons.default.replace();
-  }
-});
-(0, _jquery.default)(document).on("click", ".bg_black_btn_wrap", function () {
+(0, _jquery.default)(document).on("click", ".profile_img_view_mode_section .img_container", function (e) {
+  (0, _functions.force_hide_profile_image_view_mode)();
+  (0, _functions.profile_image_view_in_full_screen_mode)(e);
+
+  _featherIcons.default.replace();
+}); // Profile Image View Mode On Full Screen Mode From Chating Section
+
+(0, _jquery.default)(".chating_image_box").on("click", function (e) {
+  (0, _functions.profile_image_view_in_full_screen_mode)(e);
+
+  _featherIcons.default.replace();
+}); // Hide Profile Image View Mode On Full Screen Mode
+
+(0, _jquery.default)(document).on("click", ".bg_black_btn_wrap button", function () {
   (0, _functions.hide_profile_image_view_in_full_screen_mode)();
-});
-(0, _jquery.default)(document).on("click", "#tab_no_0", function () {
-  (0, _jquery.default)(".header_search_wrap input").attr("placeholder", "Search..");
-});
+}); // Changing Search Bar Placehoder On Pagination Click
+
 (0, _jquery.default)(document).on("click", "#tab_no_0", function () {
   (0, _functions.change_placeholder)("Search..");
 });
@@ -13906,13 +13938,13 @@ var wrap = ".dropdown_component_wrap";
 //   );
 //   set_Active_Tab_Bottom_Bar_Posotion();
 // });
-// $(window).resize(() => {
-//   setTimeout(() => {
-//     $("#tab_no_2").append(`<div class="unseen_chat_counter_box">2</div>`);
-//     set_Active_Tab_Bottom_Bar_Posotion();
-//   }, 10);
-// });
 
+(0, _jquery.default)(window).on("resize", function () {
+  setTimeout(function () {
+    // $("#tab_no_2").append(`<div class="unseen_chat_counter_box">2</div>`);
+    (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)();
+  }, 10);
+});
 (0, _jquery.default)(".go_to_next_step_box button").click(function () {
   (0, _jquery.default)(".signup_step_wrapper").toggleClass("active_step_two");
 });
@@ -13932,7 +13964,7 @@ var swiper = new Swiper(".swiper-container", {
 });
 swiper.on("transitionEnd", function () {
   (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)();
-  (0, _functions.force_hide_profile_image_view_mode)();
+  (0, _functions.hide_profile_image_view_mode)();
   (0, _functions.change_placeholder_all)();
 });
 
@@ -13969,7 +14001,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4155" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9238" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
