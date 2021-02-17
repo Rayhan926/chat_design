@@ -493,9 +493,9 @@ html {
 }
 
 .chat_wrapper {
-  width: 28%;
+  width: 100%;
   background-color: #fff;
-  height: 85vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 }
