@@ -14074,11 +14074,15 @@ var selectedCount = 0,
   clearTimeout(pressTimer);
   return false;
 });
-(0, _jquery.default)(document).on("mousedown", clickElm, function (e) {
-  pressTimer = window.setTimeout(function () {
-    on_chat_select_mode(e);
-  }, 500);
+(0, _jquery.default)(document).on("touchstart", clickElm, function () {
+  clearTimeout(pressTimer);
   return false;
+});
+(0, _jquery.default)(document).on("mousedown", clickElm, function (e) {
+  on_chat_select_mode(e);
+});
+(0, _jquery.default)(document).on("touchend", clickElm, function (e) {
+  on_chat_select_mode(e);
 });
 (0, _jquery.default)(document).on("click", clickElm, function (e) {
   select_more_then_one_chat(e);
@@ -14114,12 +14118,15 @@ var off_chat_select_mode = function off_chat_select_mode() {
 exports.off_chat_select_mode = off_chat_select_mode;
 
 var on_chat_select_mode = function on_chat_select_mode(e) {
-  (0, _functions.set_hash)("chatSelected");
-  chat_select_mode_on = true;
-  (0, _jquery.default)(".chat_wrapper").addClass("chat_selected_mode_on");
-  (0, _jquery.default)(e.currentTarget).addClass("selected_chat");
-  firstSelect = true;
-  selectedCount++;
+  pressTimer = window.setTimeout(function () {
+    (0, _functions.set_hash)("chatSelected");
+    chat_select_mode_on = true;
+    (0, _jquery.default)(".chat_wrapper").addClass("chat_selected_mode_on");
+    (0, _jquery.default)(e.currentTarget).addClass("selected_chat");
+    firstSelect = true;
+    selectedCount++;
+  }, 500);
+  return false;
 };
 
 (0, _jquery.default)(document).on("click", ".chating_header_wrap .back_button_box", function () {
