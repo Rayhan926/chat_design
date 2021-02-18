@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
+})({"../../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -326,7 +326,7 @@ process.chdir = function (dir) {
 process.umask = function () {
   return 0;
 };
-},{}],"../node_modules/jquery/dist/jquery.js":[function(require,module,exports) {
+},{}],"../../node_modules/jquery/dist/jquery.js":[function(require,module,exports) {
 var global = arguments[3];
 var process = require("process");
 var define;
@@ -11203,7 +11203,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{"process":"../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/feather-icons/dist/feather.js":[function(require,module,exports) {
+},{"process":"../../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../../node_modules/feather-icons/dist/feather.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -13619,7 +13619,7 @@ module.exports = __webpack_require__(/*! /home/travis/build/feathericons/feather
 /******/ });
 });
 
-},{}],"js/functions.js":[function(require,module,exports) {
+},{}],"functions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13652,7 +13652,7 @@ var get_hash = function get_hash(e) {
 exports.get_hash = get_hash;
 
 var search_bar_hash = function search_bar_hash() {
-  get_hash("search") ? show_seacrh_input() : hide_seacrh_input();
+  get_hash("search") ? null : hide_seacrh_input();
 };
 
 exports.search_bar_hash = search_bar_hash;
@@ -13915,7 +13915,7 @@ var isAlreadyAppended = false;
 var open_chating_section = function open_chating_section() {
   if (!isAlreadyAppended) {
     set_hash("chating");
-    var compo = "<div class=\"chating_wrap\">\n  <header class=\"chating_header_wrap\">\n    <div class=\"back_button_box\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-arrow-left\"><line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"></line><polyline points=\"12 19 5 12 12 5\"></polyline></svg>\n    </div>\n    <div class=\"chat_personn_name_box\">\n      <div class=\"img_box\">\n        <img src=\"me.66ab4bb4.png\" alt=\"Me\" />\n      </div>\n      <div class=\"name_box\">\n        <h4 class=\"line_clamp_1\">\n          Rayhan Ahmed Rayhan Ahmed Rayhan Ahmed\n        </h4>\n        <p>Last seen: 10:12pm</p>\n      </div>\n    </div>\n    <div class=\"chat_personn_option_box\">\n      <div class=\"dropdown_component_wrap\">\n        <div class=\"dropdown_dot_icon\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-more-vertical\"><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle></svg>\n        </div>\n        <ul class=\"dropdown_ul\" data-dropdown-ul>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Profile</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </header>\n  <div class=\"chating_body_wrap\">\n    <div class=\"all_chats_show_wrap thin_scrollbar\">\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"me.66ab4bb4.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <img src=\"me.66ab4bb4.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <img src=\"me.66ab4bb4.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_unseen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">Lorem ipsum dolor</p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n            Deleniti eaque beatae doloremque repellat impedit ipsum sit,\n            quas et aliquid, consequatur illum, iure modi a assumenda\n            iste. Voluptas eos aut quo\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_seen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"chats_send_from_wrap\">\n      <form action=\"#\">\n        <div class=\"chat_from_inner\">\n          <div class=\"chat_input_box\">\n            <div class=\"chat_input_box_corner\">\n              <div class=\"top_shadow\"></div>\n              <div class=\"bottom_right_shadow\"></div>\n            </div>\n            <div class=\"chat_emoji_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-smile\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg>\n            </div>\n            <input type=\"text\" placeholder=\"Type a message\" />\n            <div class=\"chat_send_img_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-camera\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>\n            </div>\n          </div>\n          <div class=\"chat_submit_box\">\n            <button type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-mic\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg></button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
+    var compo = "<div class=\"chating_wrap\">\n  <header class=\"chating_header_wrap\">\n    <div class=\"back_button_box\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-arrow-left\"><line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"></line><polyline points=\"12 19 5 12 12 5\"></polyline></svg>\n    </div>\n    <div class=\"chat_personn_name_box\">\n      <div class=\"img_box\">\n        <img src=\"./img/me.png\" alt=\"Me\" />\n      </div>\n      <div class=\"name_box\">\n        <h4 class=\"line_clamp_1\">\n          Rayhan Ahmed Rayhan Ahmed Rayhan Ahmed\n        </h4>\n        <p>Last seen: 10:12pm</p>\n      </div>\n    </div>\n    <div class=\"chat_personn_option_box\">\n      <div class=\"dropdown_component_wrap\">\n        <div class=\"dropdown_dot_icon\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-more-vertical\"><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle></svg>\n        </div>\n        <ul class=\"dropdown_ul\" data-dropdown-ul>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Profile</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </header>\n  <div class=\"chating_body_wrap\">\n    <div class=\"all_chats_show_wrap thin_scrollbar\">\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_unseen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">Lorem ipsum dolor</p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n            Deleniti eaque beatae doloremque repellat impedit ipsum sit,\n            quas et aliquid, consequatur illum, iure modi a assumenda\n            iste. Voluptas eos aut quo\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_seen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"chats_send_from_wrap\">\n      <form action=\"#\">\n        <div class=\"chat_from_inner\">\n          <div class=\"chat_input_box\">\n            <div class=\"chat_input_box_corner\">\n              <div class=\"top_shadow\"></div>\n              <div class=\"bottom_right_shadow\"></div>\n            </div>\n            <div class=\"chat_emoji_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-smile\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg>\n            </div>\n            <input type=\"text\" placeholder=\"Type a message\" />\n            <div class=\"chat_send_img_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-camera\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>\n            </div>\n          </div>\n          <div class=\"chat_submit_box\">\n            <button type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-mic\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg></button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
     (0, _jquery.default)(".chat_wrapper").append(compo);
     isAlreadyAppended = true;
   }
@@ -13937,9 +13937,12 @@ var close_chating_section = function close_chating_section() {
 exports.close_chating_section = close_chating_section;
 
 var chating_hash = function chating_hash() {
-  if (get_hash("chating")) {
-    open_chating_section();
-  } else if (!get_hash("ImgInFullScreen") && !get_hash("chating")) {
+  // if (get_hash("chating")) {
+  //   open_chating_section();
+  // } else if (!get_hash("ImgInFullScreen") && !get_hash("chating")) {
+  //   close_chating_section();
+  // }
+  if (!get_hash("ImgInFullScreen") && !get_hash("chating")) {
     close_chating_section();
   }
 };
@@ -13963,7 +13966,7 @@ var a = function a(e) {
 };
 
 exports.a = a;
-},{"jquery":"../node_modules/jquery/dist/jquery.js","./app":"js/app.js"}],"js/app.js":[function(require,module,exports) {
+},{"jquery":"../../node_modules/jquery/dist/jquery.js","./app":"app.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13971,7 +13974,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.off_chat_select_mode = void 0;
 
-var _jquery = _interopRequireWildcard(require("jquery"));
+var _jquery = _interopRequireDefault(require("jquery"));
 
 var _featherIcons = _interopRequireDefault(require("feather-icons"));
 
@@ -13979,13 +13982,89 @@ var _functions = require("./functions");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
 // const socket = io("http://localhost:3001");
 // socket.on("connection");
-var hash_with_url = (0, _functions.get_hash)() == "" ? "chats" : (0, _functions.get_hash)(); // search_bar_hash();
+var hash_with_url = (0, _functions.get_hash)() == "" ? "chats" : (0, _functions.get_hash)(); // document.addEventListener("touchstart", handleTouchStart, false);
+// document.addEventListener("touchmove", handleTouchMove, false);
+// var xDown = null;
+// var yDown = null;
+// function getTouches(evt) {
+//   return (
+//     evt.touches || // browser API
+//     evt.originalEvent.touches
+//   ); // jQuery
+// }
+// function handleTouchStart(evt) {
+//   const firstTouch = getTouches(evt)[0];
+//   xDown = firstTouch.clientX;
+//   yDown = firstTouch.clientY;
+// }
+// function handleTouchMove(evt) {
+//   if (!xDown || !yDown) {
+//     return;
+//   }
+//   var xUp = evt.touches[0].clientX;
+//   var yUp = evt.touches[0].clientY;
+//   var xDiff = xDown - xUp;
+//   var yDiff = yDown - yUp;
+//   if (Math.abs(xDiff) > Math.abs(yDiff)) {
+//     /*most significant*/
+//     if (xDiff > 0) {
+//       a("left swipe");
+//     } else {
+//       a("right swipe");
+//     }
+//   } else {
+//     if (yDiff > 0) {
+//       a("up swipe");
+//     } else {
+//       a("down swipe");
+//     }
+//   }
+//   /* reset values */
+//   xDown = null;
+//   yDown = null;
+// }
+// document.addEventListener("swiped", function (e) {
+//   console.log(e.target); // the element that was swiped
+//   console.log(e.detail.dir); // swiped direction
+// });
+// var obj = document.querySelector(".chat_logo_box");
+// obj.addEventListener(
+//   "touchmove",
+//   function (event) {
+//     // If there's exactly one finger inside this element
+//     if (event.targetTouches.length == 1) {
+//       var touch = event.targetTouches[0];
+//       // Place element where the finger is
+//       // alert(touch.pageX);
+//       obj.style.transfrom = `translate(${touch.pageX}px ${touch.pageY}px)`;
+//       // obj.style.top =  + "px";
+//     }
+//   },
+//   false
+// );
+
+var startFrom;
+(0, _jquery.default)(document).on("touchstart", ".chat_wrap", function (e) {
+  var touch = e.targetTouches[0];
+  startFrom = touch.pageX;
+});
+(0, _jquery.default)(document).on("touchmove", ".chat_wrap", function (e) {
+  if (e.targetTouches.length == 1) {
+    var touch = e.targetTouches[0];
+    var fromLeft = touch.pageX - startFrom;
+    (0, _jquery.default)(e.currentTarget).css({
+      transform: "translateX(".concat(fromLeft, "px)")
+    });
+  }
+});
+(0, _jquery.default)(document).on("touchend", ".chat_wrap", function (e) {
+  (0, _jquery.default)(e.currentTarget).css({
+    transform: "translateX(0px)",
+    transition: "0.2s ease"
+  });
+}); // search_bar_hash();
 // chating_hash();
 // view_profile_img_hash();
 // tab_1_hash();
@@ -14073,17 +14152,17 @@ var selectedCount = 0,
 (0, _jquery.default)(document).on("mouseup", clickElm, function () {
   clearTimeout(pressTimer);
   return false;
-});
-(0, _jquery.default)(document).on("touchstart", clickElm, function () {
-  clearTimeout(pressTimer);
-  return false;
-});
+}); // $(document).on("touchstart", clickElm, () => {
+//   clearTimeout(pressTimer);
+//   return false;
+// });
+
 (0, _jquery.default)(document).on("mousedown", clickElm, function (e) {
   on_chat_select_mode(e);
-});
-(0, _jquery.default)(document).on("touchend", clickElm, function (e) {
-  on_chat_select_mode(e);
-});
+}); // $(document).on("touchend", clickElm, (e) => {
+//   on_chat_select_mode(e);
+// });
+
 (0, _jquery.default)(document).on("click", clickElm, function (e) {
   select_more_then_one_chat(e);
 });
@@ -14191,7 +14270,7 @@ setTimeout(function () {
   (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)();
 }, 10);
 (0, _functions.set_hash)(hash_with_url);
-},{"jquery":"../node_modules/jquery/dist/jquery.js","feather-icons":"../node_modules/feather-icons/dist/feather.js","./functions":"js/functions.js"}],"../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"jquery":"../../node_modules/jquery/dist/jquery.js","feather-icons":"../../node_modules/feather-icons/dist/feather.js","./functions":"functions.js"}],"../../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -14219,7 +14298,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6009" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7173" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -14395,5 +14474,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/app.js"], null)
-//# sourceMappingURL=/app.c3f9f951.js.map
+},{}]},{},["../../../../../Users/FC/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
+//# sourceMappingURL=/app.js.map

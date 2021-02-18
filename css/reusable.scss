@@ -1,0 +1,171 @@
+@import "./functions.scss";
+
+.unseen_chat_counter_box {
+  margin-left: 0.5rem;
+  background: #fff;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
+  border-radius: 3px;
+  color: #055249;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 2px;
+  line-height: 0;
+}
+
+.cstm_btn {
+  border: none;
+  padding: 1rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: $roboto;
+  color: $primary_color;
+  background-color: $fff;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.3rem;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.dropdown_component_wrap {
+  position: relative;
+
+  display: inline-block;
+
+  .dropdown_dot_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    @include flex();
+    background: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    padding: 0.4rem;
+
+    svg {
+      font-size: 1.2rem;
+      color: $fff;
+      fill: $fff;
+      stroke: $fff;
+    }
+
+    &:hover svg {
+      color: #ddd;
+      fill: #ddd;
+      stroke: #ddd;
+    }
+  }
+  .dropdown_ul {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15rem;
+    max-height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    background: $fff;
+    box-shadow: 0 0px 3px 0px rgba(0, 14, 39, 0.3);
+    transform: scale(0);
+    z-index: 10;
+    list-style: none;
+    li {
+      border-bottom: 1px solid rgb(233, 233, 233);
+      a {
+        font-size: 1.3rem;
+        text-transform: capitalize;
+        display: flex;
+        color: $gray_400;
+        align-items: center;
+        padding: 0.6rem 1.2rem;
+        transition: 20ms ease;
+
+        &:hover {
+          background: rgba(0, 42, 70, 0.1);
+          color: $gray_200;
+        }
+
+        .dropdown_icon_box {
+          @include flex();
+          width: 1.6rem;
+          height: 1.6rem;
+
+          svg {
+            stroke: $gray_300;
+          }
+        }
+        .dropdown_text_box {
+          // padding-left: 0.8rem;
+          transition: 0.3s ease;
+          p {
+            margin-bottom: 0;
+            color: $gray_300;
+            // color: #006ba838;
+            // color: #0094831c;
+          }
+        }
+
+        &:hover .dropdown_text_box {
+          padding-left: 0.5rem !important;
+        }
+
+        &:hover .dropdown_icon_box svg,
+        &:hover .dropdown_icon_box i,
+        &:hover .dropdown_text_box p {
+          stroke: $gray_100;
+          color: $gray_100;
+        }
+      }
+      &:first-child a {
+        padding-top: 1rem;
+      }
+      &:last-child a {
+        padding-bottom: 1.1rem;
+      }
+    }
+  }
+
+  &.showDown .dropdown_ul {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    top: 0;
+    transform-origin: top right;
+  }
+  &.showUp .dropdown_ul {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+    bottom: 0;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+}
+
+// Ripple Effect Css Start
+
+.ripple_span {
+  width: 0;
+  height: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+// Ripple Effect Css End
+
+.line_clamp_1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
