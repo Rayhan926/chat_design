@@ -13930,6 +13930,7 @@ var close_chating_section = function close_chating_section() {
     }, 200, function () {
       (0, _jquery.default)(".chating_wrap").remove();
     });
+    (0, _app.off_chat_select_mode)();
     isAlreadyAppended = false;
   }
 };
@@ -14026,8 +14027,6 @@ var hash_with_url = (0, _functions.get_hash)() == "" ? "chats" : (0, _functions.
 //   yDown = null;
 // }
 // document.addEventListener("swiped", function (e) {
-//   console.log(e.target); // the element that was swiped
-//   console.log(e.detail.dir); // swiped direction
 // });
 // var obj = document.querySelector(".chat_logo_box");
 // obj.addEventListener(
@@ -14054,7 +14053,7 @@ var startFrom;
   if (e.targetTouches.length == 1) {
     var touch = e.targetTouches[0];
     var fromLeft = touch.pageX - startFrom;
-    (0, _jquery.default)(e.currentTarget).css({
+    if (fromLeft >= 0) (0, _jquery.default)(e.currentTarget).css({
       transform: "translateX(".concat(fromLeft, "px)")
     });
   }
@@ -14070,9 +14069,17 @@ var startFrom;
 // tab_1_hash();
 // tab_2_hash();
 // tab_3_hash();
-// Windows All Hash Function
+
+var currentHash = function currentHash() {
+  return location.hash.replace(/^#/, "");
+};
+
+var last_hash;
+var hash = currentHash(); // Windows All Hash Function
 
 (0, _jquery.default)(window).on("hashchange", function () {
+  last_hash = hash;
+  hash = currentHash();
   (0, _functions.search_bar_hash)();
   (0, _functions.chating_hash)();
   (0, _functions.view_profile_img_hash)();
@@ -14080,7 +14087,9 @@ var startFrom;
   (0, _functions.tab_2_hash)();
   (0, _functions.tab_3_hash)();
   (0, _functions.img_in_fullscreen_hash)();
-  (0, _functions.chat_selected_hash)();
+  setTimeout(function () {
+    (0, _functions.chat_selected_hash)();
+  }, 600);
 }); // Animated Input Events Start
 
 var parentDiv = ".input_filed_wrap";
@@ -14148,42 +14157,60 @@ var pressTimer;
 var clickElm = ".single_chat_wrap";
 var chat_select_mode_on = false;
 var selectedCount = 0,
-    firstSelect = false;
+    firstSelect = false,
+    isSelectionStart = false;
 (0, _jquery.default)(document).on("mouseup", clickElm, function () {
   clearTimeout(pressTimer);
   return false;
-}); // $(document).on("touchstart", clickElm, () => {
-//   clearTimeout(pressTimer);
-//   return false;
-// });
-
+});
+(0, _jquery.default)(document).on("touchstart", clickElm, function () {
+  clearTimeout(pressTimer);
+  return false;
+});
 (0, _jquery.default)(document).on("mousedown", clickElm, function (e) {
   on_chat_select_mode(e);
-}); // $(document).on("touchend", clickElm, (e) => {
-//   on_chat_select_mode(e);
-// });
-
+});
+(0, _jquery.default)(document).on("touchend", clickElm, function (e) {
+  if (!isSelectionStart) on_chat_select_mode(e);
+});
 (0, _jquery.default)(document).on("click", clickElm, function (e) {
   select_more_then_one_chat(e);
 });
 
 var select_more_then_one_chat = function select_more_then_one_chat(e) {
-  var thisElm = e.currentTarget;
+  if (isSelectionStart) {
+    var thisElm = e.currentTarget;
 
-  if (chat_select_mode_on) {
-    if (!(0, _jquery.default)(thisElm).hasClass("selected_chat")) {
-      (0, _jquery.default)(thisElm).addClass("selected_chat");
-      selectedCount++;
-    } else {
-      if (!firstSelect) {
-        (0, _jquery.default)(thisElm).removeClass("selected_chat");
-        selectedCount--;
+    if (chat_select_mode_on) {
+      if (!(0, _jquery.default)(thisElm).hasClass("selected_chat")) {
+        (0, _jquery.default)(thisElm).addClass("selected_chat");
+        selectedCount++;
+      } else {
+        if (!firstSelect) {
+          (0, _jquery.default)(thisElm).removeClass("selected_chat");
+          selectedCount--;
+        }
       }
     }
-  }
 
-  firstSelect = false;
-  if (selectedCount <= 0) off_chat_select_mode();
+    firstSelect = false;
+    if (selectedCount <= 0) off_chat_select_mode();
+  }
+};
+
+var on_chat_select_mode = function on_chat_select_mode(e) {
+  if (!isSelectionStart) {
+    pressTimer = window.setTimeout(function () {
+      // set_hash("chatSelected");
+      chat_select_mode_on = true;
+      (0, _jquery.default)(".chat_wrapper").addClass("chat_selected_mode_on");
+      (0, _jquery.default)(e.currentTarget).addClass("selected_chat");
+      firstSelect = true;
+      selectedCount++;
+      isSelectionStart = true;
+    }, 500);
+    return false;
+  }
 };
 
 var off_chat_select_mode = function off_chat_select_mode() {
@@ -14191,23 +14218,11 @@ var off_chat_select_mode = function off_chat_select_mode() {
   (0, _jquery.default)(".chat_wrapper").removeClass("chat_selected_mode_on");
   (0, _jquery.default)(clickElm).removeClass("selected_chat");
   firstSelect = false;
+  isSelectionStart = false;
   selectedCount = 0;
 };
 
 exports.off_chat_select_mode = off_chat_select_mode;
-
-var on_chat_select_mode = function on_chat_select_mode(e) {
-  pressTimer = window.setTimeout(function () {
-    (0, _functions.set_hash)("chatSelected");
-    chat_select_mode_on = true;
-    (0, _jquery.default)(".chat_wrapper").addClass("chat_selected_mode_on");
-    (0, _jquery.default)(e.currentTarget).addClass("selected_chat");
-    firstSelect = true;
-    selectedCount++;
-  }, 500);
-  return false;
-};
-
 (0, _jquery.default)(document).on("click", ".chating_header_wrap .back_button_box", function () {
   (0, _functions.close_chating_section)();
 });
