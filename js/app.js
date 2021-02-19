@@ -15392,7 +15392,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.a = exports.c = exports.off_chat_select_mode = exports.on_chat_select_mode = exports.select_more_then_one_chat = exports.isSelectionStart = exports.chat_select_mode_on = exports.clickElm = exports.chat_selected_hash = exports.chating_hash = exports.close_chating_section = exports.open_chating_section = exports.change_placeholder_all = exports.toggle_login_signup_section = exports.hide_profile_image_view_in_full_screen_mode = exports.img_in_fullscreen_hash = exports.profile_image_view_in_full_screen_mode = exports.force_hide_profile_image_view_mode = exports.hide_profile_image_view_mode = exports.view_profile_img_hash = exports.profile_image_view_mode = exports.change_placeholder = exports.hide_seacrh_input = exports.show_seacrh_input = exports.tab_3_hash = exports.tab_2_hash = exports.tab_1_hash = exports.set_Active_Tab_Bottom_Bar_Posotion = exports.set_ripple = exports.outside_close = exports.dropdown_autoset = exports.search_bar_hash = exports.get_hash = exports.set_hash = void 0;
+exports.a = exports.c = exports.message_selected_hash = exports.off_message_select_mode = exports.on_message_select_mode = exports.select_more_then_one_message = exports.isMessageSelectionStart = exports.message_select_mode_on = exports.off_chat_select_mode = exports.on_chat_select_mode = exports.select_more_then_one_chat = exports.isSelectionStart = exports.chat_select_mode_on = exports.clickElm = exports.chat_selected_hash = exports.chating_hash = exports.close_chating_section = exports.open_chating_section = exports.change_placeholder_all = exports.toggle_login_signup_section = exports.hide_profile_image_view_in_full_screen_mode = exports.img_in_fullscreen_hash = exports.profile_image_view_in_full_screen_mode = exports.force_hide_profile_image_view_mode = exports.hide_profile_image_view_mode = exports.view_profile_img_hash = exports.profile_image_view_mode = exports.change_placeholder = exports.hide_seacrh_input = exports.show_seacrh_input = exports.tab_3_hash = exports.tab_2_hash = exports.tab_1_hash = exports.set_Active_Tab_Bottom_Bar_Posotion = exports.set_ripple = exports.outside_close = exports.dropdown_autoset = exports.search_bar_hash = exports.get_hash = exports.set_hash = void 0;
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
@@ -15680,7 +15680,7 @@ var isAlreadyAppended = false;
 var open_chating_section = function open_chating_section() {
   if (!isAlreadyAppended) {
     set_hash("chating");
-    var compo = "<div class=\"chating_wrap\">\n  <header class=\"chating_header_wrap\">\n    <div class=\"back_button_box\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-arrow-left\"><line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"></line><polyline points=\"12 19 5 12 12 5\"></polyline></svg>\n    </div>\n    <div class=\"chat_personn_name_box\">\n      <div class=\"img_box\">\n        <img src=\"./img/me.png\" alt=\"Me\" />\n      </div>\n      <div class=\"name_box\">\n        <h4 class=\"line_clamp_1\">\n          Rayhan Ahmed Rayhan Ahmed Rayhan Ahmed\n        </h4>\n        <p>Last seen: 10:12pm</p>\n      </div>\n    </div>\n    <div class=\"chat_personn_option_box\">\n      <div class=\"dropdown_component_wrap\">\n        <div class=\"dropdown_dot_icon\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-more-vertical\"><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle></svg>\n        </div>\n        <ul class=\"dropdown_ul\" data-dropdown-ul>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Profile</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </header>\n  <div class=\"chating_body_wrap\">\n    <div class=\"all_chats_show_wrap thin_scrollbar\">\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_unseen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">Lorem ipsum dolor</p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n            Deleniti eaque beatae doloremque repellat impedit ipsum sit,\n            quas et aliquid, consequatur illum, iure modi a assumenda\n            iste. Voluptas eos aut quo\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_seen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"chats_send_from_wrap\">\n      <form action=\"#\">\n        <div class=\"chat_from_inner\">\n          <div class=\"chat_input_box\">\n            <div class=\"chat_input_box_corner\">\n              <div class=\"top_shadow\"></div>\n              <div class=\"bottom_right_shadow\"></div>\n            </div>\n            <div class=\"chat_emoji_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-smile\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg>\n            </div>\n            <input type=\"text\" placeholder=\"Type a message\" />\n            <div class=\"chat_send_img_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-camera\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>\n            </div>\n          </div>\n          <div class=\"chat_submit_box\">\n            <button type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-mic\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg></button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
+    var compo = "<div class=\"chating_wrap\">\n  <header class=\"chating_header_wrap\">\n    <div class=\"back_button_box\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-arrow-left\"><line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"></line><polyline points=\"12 19 5 12 12 5\"></polyline></svg>\n    </div>\n    <div class=\"chat_personn_name_box\">\n      <div class=\"img_box\">\n        <img src=\"./img/me.png\" alt=\"Me\" />\n      </div>\n      <div class=\"name_box\">\n        <h4 class=\"line_clamp_1\">\n          Rayhan Ahmed Rayhan Ahmed Rayhan Ahmed\n        </h4>\n        <p>Last seen: 10:12pm</p>\n      </div>\n    </div>\n    <div class=\"chat_personn_option_box\">\n      <div class=\"dropdown_component_wrap\">\n        <div class=\"dropdown_dot_icon\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-more-vertical\"><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle></svg>\n        </div>\n        <ul class=\"dropdown_ul\" data-dropdown-ul>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Profile</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </header>\n  <div class=\"chating_body_wrap\">\n    <div class=\"all_chats_show_wrap thin_scrollbar\">\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"300\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"300\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"300\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_unseen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"300\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">Lorem ipsum dolor</p>\n        </div>\n      </div>\n      <div class=\"chat_wrap\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"300\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg\n            enable-background=\"new 0 0 24 24\"\n            viewBox=\"0 0 24 24\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <path\n              d=\"m23.772 10.462-8.5-8.25c-.216-.21-.539-.269-.814-.153-.277.118-.458.39-.458.691v4.252c-7.743.134-14 6.474-14 14.248 0 .342.241.622.572.708.059.015.118.022.177.022.274 0 .541-.157.678-.404 2.245-4.056 6.519-6.576 11.155-6.576h1.418v4.25c0 .301.181.573.458.691.274.116.599.057.814-.153l8.5-8.25c.146-.141.228-.335.228-.538s-.082-.397-.228-.538z\"\n            />\n          </svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"300\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n            Deleniti eaque beatae doloremque repellat impedit ipsum sit,\n            quas et aliquid, consequatur illum, iure modi a assumenda\n            iste. Voluptas eos aut quo\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_seen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"chats_send_from_wrap\">\n      <form action=\"#\">\n        <div class=\"chat_from_inner\">\n          <div class=\"chat_input_box\">\n            <div class=\"chat_input_box_corner\">\n              <div class=\"top_shadow\"></div>\n              <div class=\"bottom_right_shadow\"></div>\n            </div>\n            <div class=\"chat_emoji_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-smile\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg>\n            </div>\n            <input type=\"text\" placeholder=\"Type a message\" />\n            <div class=\"chat_send_img_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-camera\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>\n            </div>\n          </div>\n          <div class=\"chat_submit_box\">\n            <button type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-mic\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg></button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
     (0, _jquery.default)(".chat_wrapper").append(compo);
     isAlreadyAppended = true;
   }
@@ -15708,7 +15708,7 @@ var chating_hash = function chating_hash() {
   // } else if (!get_hash("ImgInFullScreen") && !get_hash("chating")) {
   //   close_chating_section();
   // }
-  if (!get_hash("ImgInFullScreen") && !get_hash("chating")) {
+  if (!get_hash("ImgInFullScreen") && !get_hash("chating") && !get_hash("messageSelected")) {
     close_chating_section();
   }
 };
@@ -15775,8 +15775,94 @@ var off_chat_select_mode = function off_chat_select_mode() {
   exports.isSelectionStart = isSelectionStart = false;
   selectedCount = 0;
 };
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * */
+
 
 exports.off_chat_select_mode = off_chat_select_mode;
+var message_select_mode_on = false;
+exports.message_select_mode_on = message_select_mode_on;
+var messageSelectedCount = 0,
+    messageFirstSelect = false;
+var isMessageSelectionStart = false;
+exports.isMessageSelectionStart = isMessageSelectionStart;
+
+var select_more_then_one_message = function select_more_then_one_message(e) {
+  if (isMessageSelectionStart) {
+    var thisElm = (0, _jquery.default)(e.currentTarget).parent();
+
+    if (message_select_mode_on) {
+      if (!(0, _jquery.default)(thisElm).hasClass("messageSelected")) {
+        (0, _jquery.default)(thisElm).addClass("messageSelected");
+        messageSelectedCount++;
+      } else {
+        if (!messageFirstSelect) {
+          (0, _jquery.default)(thisElm).removeClass("messageSelected");
+          messageSelectedCount--;
+        }
+      }
+    }
+
+    messageFirstSelect = false;
+    if (messageSelectedCount <= 0) off_message_select_mode();
+  }
+};
+
+exports.select_more_then_one_message = select_more_then_one_message;
+
+var on_message_select_mode = function on_message_select_mode(e) {
+  if (!isMessageSelectionStart) {
+    set_hash("messageSelected");
+    exports.message_select_mode_on = message_select_mode_on = true;
+    (0, _jquery.default)(e.currentTarget).parent().addClass("messageSelected");
+    messageFirstSelect = true;
+    messageSelectedCount++;
+    exports.isMessageSelectionStart = isMessageSelectionStart = true;
+    return false;
+  }
+};
+
+exports.on_message_select_mode = on_message_select_mode;
+
+var off_message_select_mode = function off_message_select_mode() {
+  exports.message_select_mode_on = message_select_mode_on = false;
+  (0, _jquery.default)(".chat_wrap").removeClass("messageSelected");
+  messageFirstSelect = false;
+  exports.isMessageSelectionStart = isMessageSelectionStart = false;
+  messageSelectedCount = 0;
+};
+
+exports.off_message_select_mode = off_message_select_mode;
+
+var message_selected_hash = function message_selected_hash() {
+  get_hash("messageSelected") ? null : off_message_select_mode();
+};
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+exports.message_selected_hash = message_selected_hash;
 
 var c = function c(e) {
   console.log(e);
@@ -15852,6 +15938,38 @@ var swipeElm = ".chat_text_or_image_wrap";
     }
   }
 });
+(0, _jquery.default)(document).on("click", swipeElm, function (e) {
+  (0, _functions.select_more_then_one_message)(e);
+});
+(0, _jquery.default)(document).on("long-press", swipeElm, function (e) {
+  // on_message_select_mode
+  if (!_functions.isMessageSelectionStart) (0, _functions.on_message_select_mode)(e);
+}); // function validURL(str) {
+//   var pattern = new RegExp(
+//     "^(https?:\\/\\/)?" + // protocol
+//       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+//       "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+//       "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+//       "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+//       "(\\#[-a-z\\d_]*)?$",
+//     "i"
+//   ); // fragment locator
+//   return pattern.test(str);
+// }
+// console.log(validURL("fas saf saf facebook.com"));
+// function urlify(text) {
+//   var urlRegex = /(https?:\/\/[^\s]+)/g;
+//   return text.replace(urlRegex, function (url) {
+//     return `<a href="${url}"> ` + url + ` </a>`;
+//   });
+// or alternatively
+// return text.replace(urlRegex, '<a href="$1">$1</a>')
+// }
+// var text =
+//   "Find me at http://www.example.com and also at http://stackoverflow.com";
+// var html = urlify(text);
+// $("body").append(html);
+
 (0, _jquery.default)(document).on("touchend", swipeElm, function (e) {
   var elm = e.currentTarget;
   var thisFrowardIcon = (0, _jquery.default)(elm).parent().find(".forward_activate_icon_box");
@@ -15895,6 +16013,7 @@ var swipeElm = ".chat_text_or_image_wrap";
   (0, _functions.tab_3_hash)();
   (0, _functions.img_in_fullscreen_hash)();
   (0, _functions.chat_selected_hash)();
+  (0, _functions.message_selected_hash)();
 }); // Animated Input Events Start
 
 var parentDiv = ".input_filed_wrap";
@@ -15935,7 +16054,7 @@ var parentDiv = ".input_filed_wrap";
 }); // Profile Image View Mode On Full Screen Mode From Chating Section
 
 (0, _jquery.default)(document).on("click", ".chating_image_box", function (e) {
-  (0, _functions.profile_image_view_in_full_screen_mode)(e);
+  !_functions.message_select_mode_on ? (0, _functions.profile_image_view_in_full_screen_mode)(e) : null;
 }); // Hide Profile Image View Mode On Full Screen Mode
 
 (0, _jquery.default)(document).on("click", ".bg_black_btn_wrap button", function () {
@@ -16032,7 +16151,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3690" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7759" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

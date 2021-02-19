@@ -339,7 +339,7 @@ export const open_chating_section = () => {
             />
           </svg>
         </div>
-        <div class="chat_text_or_image_wrap">
+        <div class="chat_text_or_image_wrap" data-long-press-delay="300">
           <div class="chating_image_box">
             <!-- <img src="./img/me.png" alt="Me" /> -->
           </div>
@@ -360,7 +360,7 @@ export const open_chating_section = () => {
             />
           </svg>
         </div>
-        <div class="chat_text_or_image_wrap">
+        <div class="chat_text_or_image_wrap" data-long-press-delay="300">
           <div class="chating_image_box">
             <img src="./img/me.png" alt="Me" />
           </div>
@@ -383,7 +383,7 @@ export const open_chating_section = () => {
             />
           </svg>
         </div>
-        <div class="chat_text_or_image_wrap">
+        <div class="chat_text_or_image_wrap" data-long-press-delay="300">
           <div class="chating_image_box">
             <img src="./img/me.png" alt="Me" />
           </div>
@@ -436,7 +436,7 @@ l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.
             />
           </svg>
         </div>
-        <div class="chat_text_or_image_wrap">
+        <div class="chat_text_or_image_wrap" data-long-press-delay="300">
           <div class="chating_image_box"></div>
           <p class="chat_text_p">Lorem ipsum dolor</p>
         </div>
@@ -453,7 +453,7 @@ l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.
             />
           </svg>
         </div>
-        <div class="chat_text_or_image_wrap">
+        <div class="chat_text_or_image_wrap" data-long-press-delay="300">
           <div class="chating_image_box"></div>
           <p class="chat_text_p">
             Lorem ipsum dolor, sit amet consectetur
@@ -472,7 +472,7 @@ l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.
             />
           </svg>
         </div>
-        <div class="chat_text_or_image_wrap">
+        <div class="chat_text_or_image_wrap" data-long-press-delay="300">
           <div class="chating_image_box"></div>
           <p class="chat_text_p">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -563,7 +563,11 @@ export const chating_hash = () => {
   //   close_chating_section();
   // }
 
-  if (!get_hash("ImgInFullScreen") && !get_hash("chating")) {
+  if (
+    !get_hash("ImgInFullScreen") &&
+    !get_hash("chating") &&
+    !get_hash("messageSelected")
+  ) {
     close_chating_section();
   }
 };
@@ -576,7 +580,6 @@ export var chat_select_mode_on = false;
 let selectedCount = 0,
   firstSelect = false;
 export let isSelectionStart = false;
-
 export const select_more_then_one_chat = (e) => {
   if (isSelectionStart) {
     let thisElm = e.currentTarget;
@@ -595,7 +598,6 @@ export const select_more_then_one_chat = (e) => {
     if (selectedCount <= 0) off_chat_select_mode();
   }
 };
-
 export const on_chat_select_mode = (e) => {
   if (!isSelectionStart) {
     set_hash("chatSelected");
@@ -608,7 +610,6 @@ export const on_chat_select_mode = (e) => {
     return false;
   }
 };
-
 export const off_chat_select_mode = () => {
   chat_select_mode_on = false;
   $(".chat_wrapper").removeClass("chat_selected_mode_on");
@@ -617,6 +618,78 @@ export const off_chat_select_mode = () => {
   isSelectionStart = false;
   selectedCount = 0;
 };
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * */
+
+export var message_select_mode_on = false;
+let messageSelectedCount = 0,
+  messageFirstSelect = false;
+export let isMessageSelectionStart = false;
+export const select_more_then_one_message = (e) => {
+  if (isMessageSelectionStart) {
+    let thisElm = $(e.currentTarget).parent();
+    if (message_select_mode_on) {
+      if (!$(thisElm).hasClass("messageSelected")) {
+        $(thisElm).addClass("messageSelected");
+        messageSelectedCount++;
+      } else {
+        if (!messageFirstSelect) {
+          $(thisElm).removeClass("messageSelected");
+          messageSelectedCount--;
+        }
+      }
+    }
+    messageFirstSelect = false;
+    if (messageSelectedCount <= 0) off_message_select_mode();
+  }
+};
+export const on_message_select_mode = (e) => {
+  if (!isMessageSelectionStart) {
+    set_hash("messageSelected");
+    message_select_mode_on = true;
+    $(e.currentTarget).parent().addClass("messageSelected");
+    messageFirstSelect = true;
+    messageSelectedCount++;
+    isMessageSelectionStart = true;
+    return false;
+  }
+};
+export const off_message_select_mode = () => {
+  message_select_mode_on = false;
+  $(".chat_wrap").removeClass("messageSelected");
+  messageFirstSelect = false;
+  isMessageSelectionStart = false;
+  messageSelectedCount = 0;
+};
+
+export const message_selected_hash = () => {
+  get_hash("messageSelected") ? null : off_message_select_mode();
+};
+
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 
 export const c = (e) => {
   console.log(e);

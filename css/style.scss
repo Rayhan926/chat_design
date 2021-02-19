@@ -409,14 +409,14 @@ html {
   .chating_body_wrap {
     height: calc(100% - 49px);
     overflow: hidden;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     padding-right: 0;
 
     .all_chats_show_wrap {
       height: calc(100% - 45px);
       overflow: hidden;
       overflow-y: auto;
-      padding: 0.5rem 2rem 0 1rem;
+      padding-top: 0.5rem;
       margin-bottom: 0.5rem;
 
       // background-color: $fff;
@@ -425,6 +425,9 @@ html {
         display: flex;
         justify-content: flex-start;
         position: relative;
+        margin-bottom: 0.5rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
 
         .forward_activate_icon_box {
           position: absolute;
@@ -457,7 +460,6 @@ html {
           position: relative;
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3),
             0 1px 0px 0 rgba(0, 0, 0, 0.05);
-          margin-bottom: 0.5rem;
 
           &::before {
             content: "";
@@ -557,6 +559,14 @@ html {
               transform: translate(14px, -3px) rotate(-43deg);
             }
           }
+        }
+
+        &.messageSelected::before {
+          content: "";
+          @include absAll();
+          z-index: 3;
+          background: #25d3651c;
+          pointer-events: none !important;
         }
       }
     }

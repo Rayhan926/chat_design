@@ -982,7 +982,7 @@ html {
 .chating_wrap .chating_body_wrap {
   height: calc(100% - 49px);
   overflow: hidden;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   padding-right: 0;
 }
 
@@ -990,7 +990,7 @@ html {
   height: calc(100% - 45px);
   overflow: hidden;
   overflow-y: auto;
-  padding: 0.5rem 2rem 0 1rem;
+  padding-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -1003,6 +1003,9 @@ html {
       -ms-flex-pack: start;
           justify-content: flex-start;
   position: relative;
+  margin-bottom: 0.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .forward_activate_icon_box {
@@ -1036,7 +1039,6 @@ html {
   position: relative;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3), 0 1px 0px 0 rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3), 0 1px 0px 0 rgba(0, 0, 0, 0.05);
-  margin-bottom: 0.5rem;
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .chat_text_or_image_wrap::before {
@@ -1144,6 +1146,18 @@ html {
   right: 0;
   -webkit-transform: translate(14px, -3px) rotate(-43deg);
           transform: translate(14px, -3px) rotate(-43deg);
+}
+
+.chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap.messageSelected::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: #25d3651c;
+  pointer-events: none !important;
 }
 
 .chating_wrap .chating_body_wrap .chats_send_from_wrap form {
