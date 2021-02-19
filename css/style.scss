@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  user-select: none !important;
 }
 
 body {
@@ -410,14 +409,19 @@ html {
     height: calc(100% - 49px);
     overflow: hidden;
     padding: 0.5rem 0;
+    padding-bottom: 0.6rem;
     padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 
     .all_chats_show_wrap {
-      height: calc(100% - 45px);
+      max-height: calc(100% - 41px);
       overflow: hidden;
       overflow-y: auto;
       padding-top: 0.5rem;
       margin-bottom: 0.5rem;
+      transition: height 0.4s ease-in-out;
 
       // background-color: $fff;
       .chat_wrap {
@@ -431,15 +435,15 @@ html {
 
         .forward_activate_icon_box {
           position: absolute;
-          top: calc(50% - 3px);
+          top: calc(50% - 1px);
           left: -30px;
           transform: translateY(-50%);
-          width: 2rem;
-          height: 2rem;
+          width: 2.3rem;
+          height: 2.3rem;
           background: rgba(black, 0.15);
           padding: 0.5rem;
           border-radius: 50%;
-          z-index: 33;
+          z-index: 0;
           // transition: background 0.15s ease-in-out;
 
           svg {
@@ -468,7 +472,7 @@ html {
             left: -0.9rem;
             border-bottom: 1rem solid transparent;
             border-right: 1rem solid $fff;
-            box-shadow: 0px -0.8px 1px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.12);
           }
 
           &::after {
@@ -476,10 +480,12 @@ html {
             position: absolute;
             top: 4px;
             left: 0;
-            width: 18px;
             height: 3px;
-            box-shadow: 0 1px 1px 0 #00000021;
-            transform: translate(-15px, -4px) rotate(40deg);
+            top: 4px;
+            width: 14px;
+            box-shadow: 0 1px 1px 0 #00000018;
+            transform: translate(-10px, -2px) rotate(44deg);
+            z-index: -1;
           }
 
           .chating_image_box {
@@ -556,7 +562,7 @@ html {
             &::after {
               left: auto;
               right: 0;
-              transform: translate(14px, -3px) rotate(-43deg);
+              transform: translate(10.5px, -2px) rotate(-43deg);
             }
           }
         }
@@ -565,12 +571,13 @@ html {
           content: "";
           @include absAll();
           z-index: 3;
-          background: #25d3651c;
+          background: #25d36525;
           pointer-events: none !important;
         }
       }
     }
     .chats_send_from_wrap {
+      position: relative;
       form {
         width: 100%;
       }
@@ -579,52 +586,54 @@ html {
     .chat_from_inner {
       display: grid;
       grid-template-columns: auto 4.5rem;
-      padding-right: 0.5rem;
+      padding-right: 0.6rem;
+      padding-left: 0.6rem;
 
       .chat_input_box {
-        background: $fff;
-        border-radius: 0.3rem 0 0.3rem 0.3rem;
-        box-shadow: 0 0 1px 0 rgb(230, 230, 230),
-          0 -1px 1px 0 rgb(223, 223, 223), 0 1px 2px 0 rgb(185, 185, 185);
-        height: 4rem;
         position: relative;
         @include flex();
+        height: 3.6rem;
+        background: $fff;
+        // border-radius: 0.3rem 0 0.3rem 0.3rem;
+        border-radius: 6rem;
+        box-shadow: 0 0 1px 0 rgb(230, 230, 230),
+          0 -1px 1px 0 rgb(223, 223, 223), 0 1px 2px 0 rgb(185, 185, 185);
 
-        .chat_input_box_corner {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: -1.1rem;
-          border-left: 1.2rem solid transparent;
-          border-top: 1.2rem solid $fff;
-          transform: rotateY(180deg);
-          z-index: 9;
+        // .chat_input_box_corner {
+        //   content: "";
+        //   position: absolute;
+        //   top: 0;
+        //   right: -1.1rem;
+        //   border-left: 1.2rem solid transparent;
+        //   border-top: 1.2rem solid $fff;
+        //   transform: rotateY(180deg);
+        //   z-index: 9;
 
-          .top_shadow {
-            position: absolute;
-            width: 1.2rem;
-            height: 1px;
-            right: calc(100% - 1px);
-            top: -1.2rem;
-            box-shadow: 0px -0.2px 0.5px 0px #dfdfdf;
-            z-index: -1;
-          }
-          .bottom_right_shadow {
-            position: absolute;
-            bottom: 0;
-            right: 100%;
-            width: 16px;
-            height: 1px;
-            background: transparent;
-            transform: rotate(45deg) translateX(-2px) translateY(-6px);
-            box-shadow: -0.5px 1px 1px 0px rgb(196, 196, 196);
-          }
-        }
+        //   .top_shadow {
+        //     position: absolute;
+        //     width: 1.2rem;
+        //     height: 1px;
+        //     right: calc(100% - 1px);
+        //     top: -1.2rem;
+        //     box-shadow: 0px -0.2px 0.5px 0px #dfdfdf;
+        //     z-index: -1;
+        //   }
+        //   .bottom_right_shadow {
+        //     position: absolute;
+        //     bottom: 0;
+        //     right: 100%;
+        //     width: 16px;
+        //     height: 1px;
+        //     background: transparent;
+        //     transform: rotate(45deg) translateX(-2px) translateY(-6px);
+        //     box-shadow: -0.5px 1px 1px 0px rgb(196, 196, 196);
+        //   }
+        // }
 
         input {
           width: 100%;
           height: 100%;
-          font-size: 1.3rem;
+          font-size: 1.35rem;
           border: none;
           padding: 0 3.5rem;
           color: $gray_000;
@@ -691,6 +700,59 @@ html {
         }
       }
     }
+  }
+}
+.chat_input_box.reply_preview_on {
+  border-radius: 0 0 2rem 2rem !important;
+}
+.chating_reply_message_preview_wrap {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: $fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.4rem;
+  display: none;
+
+  .chating_reply_message_and_img_box {
+    background-color: rgba(black, 0.08);
+    border-radius: 0.3rem;
+    position: relative;
+    border-left: 3px solid rgb(89, 0, 148);
+    display: flex;
+    justify-content: space-between;
+
+    .chating_reply_message_box {
+      padding: 0.2rem 0.3rem 0.2rem 0.4rem;
+      max-width: 80%;
+
+      .reply_message_author_name {
+        color: rgb(89, 0, 148);
+        font-size: 1.3rem;
+        margin-bottom: 1px;
+      }
+      .reply_message {
+        color: $gray_300;
+        font-size: 1.2rem;
+      }
+    }
+
+    .chating_reply_cancel_box {
+      position: absolute;
+      top: 0.3rem;
+      right: 0.3rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      background-color: rgb(212, 212, 212);
+      border-radius: 50%;
+      @include flex();
+      padding: 0.3rem 0.2rem 0.3rem 0.3rem;
+      cursor: pointer;
+    }
+  }
+  .chating_reply_img_box {
+    width: 13rem;
   }
 }
 

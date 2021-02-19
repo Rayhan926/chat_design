@@ -14,6 +14,10 @@ img {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 ul {
@@ -444,10 +448,6 @@ svg {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-user-select: none !important;
-     -moz-user-select: none !important;
-      -ms-user-select: none !important;
-          user-select: none !important;
 }
 
 body {
@@ -983,15 +983,28 @@ html {
   height: calc(100% - 49px);
   overflow: hidden;
   padding: 0.5rem 0;
+  padding-bottom: 0.6rem;
   padding-right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap {
-  height: calc(100% - 45px);
+  max-height: calc(100% - 41px);
   overflow: hidden;
   overflow-y: auto;
   padding-top: 0.5rem;
   margin-bottom: 0.5rem;
+  -webkit-transition: height 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out;
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap {
@@ -1010,16 +1023,16 @@ html {
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .forward_activate_icon_box {
   position: absolute;
-  top: calc(50% - 3px);
+  top: calc(50% - 1px);
   left: -30px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  width: 2rem;
-  height: 2rem;
+  width: 2.3rem;
+  height: 2.3rem;
   background: rgba(0, 0, 0, 0.15);
   padding: 0.5rem;
   border-radius: 50%;
-  z-index: 33;
+  z-index: 0;
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .forward_activate_icon_box svg {
@@ -1048,8 +1061,8 @@ html {
   left: -0.9rem;
   border-bottom: 1rem solid transparent;
   border-right: 1rem solid #fff;
-  -webkit-box-shadow: 0px -0.8px 1px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0px -0.8px 1px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .chat_text_or_image_wrap::after {
@@ -1057,12 +1070,14 @@ html {
   position: absolute;
   top: 4px;
   left: 0;
-  width: 18px;
   height: 3px;
-  -webkit-box-shadow: 0 1px 1px 0 #00000021;
-          box-shadow: 0 1px 1px 0 #00000021;
-  -webkit-transform: translate(-15px, -4px) rotate(40deg);
-          transform: translate(-15px, -4px) rotate(40deg);
+  top: 4px;
+  width: 14px;
+  -webkit-box-shadow: 0 1px 1px 0 #00000018;
+          box-shadow: 0 1px 1px 0 #00000018;
+  -webkit-transform: translate(-10px, -2px) rotate(44deg);
+          transform: translate(-10px, -2px) rotate(44deg);
+  z-index: -1;
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .chat_text_or_image_wrap .chating_image_box {
@@ -1144,8 +1159,8 @@ html {
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap.from_other_side .chat_text_or_image_wrap::after {
   left: auto;
   right: 0;
-  -webkit-transform: translate(14px, -3px) rotate(-43deg);
-          transform: translate(14px, -3px) rotate(-43deg);
+  -webkit-transform: translate(10.5px, -2px) rotate(-43deg);
+          transform: translate(10.5px, -2px) rotate(-43deg);
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap.messageSelected::before {
@@ -1156,8 +1171,12 @@ html {
   width: 100%;
   height: 100%;
   z-index: 3;
-  background: #25d3651c;
+  background: #25d36525;
   pointer-events: none !important;
+}
+
+.chating_wrap .chating_body_wrap .chats_send_from_wrap {
+  position: relative;
 }
 
 .chating_wrap .chating_body_wrap .chats_send_from_wrap form {
@@ -1169,15 +1188,11 @@ html {
   display: grid;
   -ms-grid-columns: auto 4.5rem;
       grid-template-columns: auto 4.5rem;
-  padding-right: 0.5rem;
+  padding-right: 0.6rem;
+  padding-left: 0.6rem;
 }
 
 .chating_wrap .chating_body_wrap .chat_from_inner .chat_input_box {
-  background: #fff;
-  border-radius: 0.3rem 0 0.3rem 0.3rem;
-  -webkit-box-shadow: 0 0 1px 0 #e6e6e6, 0 -1px 1px 0 #dfdfdf, 0 1px 2px 0 #b9b9b9;
-          box-shadow: 0 0 1px 0 #e6e6e6, 0 -1px 1px 0 #dfdfdf, 0 1px 2px 0 #b9b9b9;
-  height: 4rem;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1190,48 +1205,17 @@ html {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-}
-
-.chating_wrap .chating_body_wrap .chat_from_inner .chat_input_box .chat_input_box_corner {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -1.1rem;
-  border-left: 1.2rem solid transparent;
-  border-top: 1.2rem solid #fff;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  z-index: 9;
-}
-
-.chating_wrap .chating_body_wrap .chat_from_inner .chat_input_box .chat_input_box_corner .top_shadow {
-  position: absolute;
-  width: 1.2rem;
-  height: 1px;
-  right: calc(100% - 1px);
-  top: -1.2rem;
-  -webkit-box-shadow: 0px -0.2px 0.5px 0px #dfdfdf;
-          box-shadow: 0px -0.2px 0.5px 0px #dfdfdf;
-  z-index: -1;
-}
-
-.chating_wrap .chating_body_wrap .chat_from_inner .chat_input_box .chat_input_box_corner .bottom_right_shadow {
-  position: absolute;
-  bottom: 0;
-  right: 100%;
-  width: 16px;
-  height: 1px;
-  background: transparent;
-  -webkit-transform: rotate(45deg) translateX(-2px) translateY(-6px);
-          transform: rotate(45deg) translateX(-2px) translateY(-6px);
-  -webkit-box-shadow: -0.5px 1px 1px 0px #c4c4c4;
-          box-shadow: -0.5px 1px 1px 0px #c4c4c4;
+  height: 3.6rem;
+  background: #fff;
+  border-radius: 6rem;
+  -webkit-box-shadow: 0 0 1px 0 #e6e6e6, 0 -1px 1px 0 #dfdfdf, 0 1px 2px 0 #b9b9b9;
+          box-shadow: 0 0 1px 0 #e6e6e6, 0 -1px 1px 0 #dfdfdf, 0 1px 2px 0 #b9b9b9;
 }
 
 .chating_wrap .chating_body_wrap .chat_from_inner .chat_input_box input {
   width: 100%;
   height: 100%;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   border: none;
   padding: 0 3.5rem;
   color: #000;
@@ -1347,6 +1331,77 @@ html {
 
 .chating_wrap .chating_body_wrap .chat_from_inner .chat_submit_box button:hover {
   background: #01302a;
+}
+
+.chat_input_box.reply_preview_on {
+  border-radius: 0 0 2rem 2rem !important;
+}
+
+.chating_reply_message_preview_wrap {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.4rem;
+  display: none;
+}
+
+.chating_reply_message_preview_wrap .chating_reply_message_and_img_box {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 0.3rem;
+  position: relative;
+  border-left: 3px solid #590094;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.chating_reply_message_preview_wrap .chating_reply_message_and_img_box .chating_reply_message_box {
+  padding: 0.2rem 0.3rem 0.2rem 0.4rem;
+  max-width: 80%;
+}
+
+.chating_reply_message_preview_wrap .chating_reply_message_and_img_box .chating_reply_message_box .reply_message_author_name {
+  color: #590094;
+  font-size: 1.3rem;
+  margin-bottom: 1px;
+}
+
+.chating_reply_message_preview_wrap .chating_reply_message_and_img_box .chating_reply_message_box .reply_message {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.chating_reply_message_preview_wrap .chating_reply_message_and_img_box .chating_reply_cancel_box {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: #d4d4d4;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0.3rem 0.2rem 0.3rem 0.3rem;
+  cursor: pointer;
+}
+
+.chating_reply_message_preview_wrap .chating_reply_img_box {
+  width: 13rem;
 }
 
 .search_friends_wrap {
