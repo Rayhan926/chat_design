@@ -1061,8 +1061,8 @@ html {
   border-radius: 0 0.3rem 0.3rem 0.3rem;
   max-width: 80%;
   position: relative;
-  -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3), 0 1px 0px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3), 0 1px 0px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3), 0 1.5px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3), 0 1.5px 1px 0 rgba(0, 0, 0, 0.05);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -1076,8 +1076,8 @@ html {
   left: -0.9rem;
   border-bottom: 1rem solid transparent;
   border-right: 1rem solid #fff;
-  -webkit-box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px -0.5px 0px 0 rgba(0, 0, 0, 0.06);
+          box-shadow: 0px -0.5px 0px 0 rgba(0, 0, 0, 0.06);
 }
 
 .chating_wrap .chating_body_wrap .all_chats_show_wrap .chat_wrap .chat_text_or_image_wrap::after {
@@ -1778,8 +1778,54 @@ html {
   background-color: #000;
   z-index: 9999;
   left: 0;
-  -webkit-animation: fromLeft 0.3s ease-in-out;
-          animation: fromLeft 0.3s ease-in-out;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+          animation: fadeIn 0.3s ease-in-out;
+}
+
+.bg_black_full .img_hide_box,
+.profile_img_view_mode_section .img_hide_box {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.bg_black_full .img_hide_box img,
+.profile_img_view_mode_section .img_hide_box img {
+  width: 100%;
+}
+
+.bg_black_full .img_full_screen_box,
+.profile_img_view_mode_section .img_full_screen_box {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.bg_black_full .img_full_screen_box img,
+.profile_img_view_mode_section .img_full_screen_box img {
+  width: 100%;
+  height: auto;
 }
 
 .bg_black_full .bg_black_btn_wrap,
@@ -1791,6 +1837,8 @@ html {
   height: 100%;
   height: auto;
   padding: 0.8rem;
+  background: #000;
+  z-index: 3;
 }
 
 .bg_black_full .bg_black_btn_wrap button,
