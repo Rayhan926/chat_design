@@ -141,7 +141,12 @@ html {
   width: 100%;
   overflow-y: hidden;
   overflow-x: auto;
-  transition: height 0.3s ease-in-out;
+  transition: height 0.3s ease-in-out, background-color 0.2s ease-in-out;
+
+  &.matched_bg {
+    background-color: #00897b !important;
+    transition: background-color 0s ease-in-out;
+  }
 
   &.hide {
     height: 2% !important;
@@ -353,6 +358,7 @@ html {
     align-items: center;
     padding: 0.6rem 1.2rem;
     background: $primary_color;
+    position: relative;
 
     .back_button_box {
       width: 2.5rem;
@@ -416,7 +422,8 @@ html {
     flex-direction: column;
 
     .all_chats_show_wrap {
-      max-height: calc(100% - 41px);
+      // max-height: calc(100% - 41px);
+      max-height: 100%;
       overflow: hidden;
       overflow-y: auto;
       padding-top: 0.5rem;
@@ -464,6 +471,7 @@ html {
           position: relative;
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3),
             0 1px 0px 0 rgba(0, 0, 0, 0.05);
+          user-select: none;
 
           &::before {
             content: "";
@@ -498,7 +506,7 @@ html {
 
           .chat_text_p {
             font-size: 1.3rem;
-            color: $gray_100;
+            color: $gray_000;
             margin: 0;
             line-height: 1.25;
           }
@@ -545,7 +553,7 @@ html {
           }
         }
 
-        &.from_other_side {
+        &.from_my_side {
           justify-content: flex-end;
 
           .chat_text_or_image_wrap {
@@ -571,15 +579,30 @@ html {
           content: "";
           @include absAll();
           z-index: 3;
-          background: #25d36525;
+          background: #0da5e025;
           pointer-events: none !important;
+        }
+
+        &.from_other_side + .chat_wrap.from_other_side,
+        &.from_my_side + .chat_wrap.from_my_side {
+          .chat_text_or_image_wrap {
+            &::before,
+            &::after {
+              display: none;
+            }
+          }
         }
       }
     }
     .chats_send_from_wrap {
       position: relative;
+      // min-height: 5rem;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
       form {
         width: 100%;
+        height: 100%;
       }
     }
 
@@ -588,11 +611,13 @@ html {
       grid-template-columns: auto 4.5rem;
       padding-right: 0.6rem;
       padding-left: 0.6rem;
+      height: 100%;
 
       .chat_input_box {
         position: relative;
         @include flex();
-        height: 3.6rem;
+        height: 100%;
+
         background: $fff;
         // border-radius: 0.3rem 0 0.3rem 0.3rem;
         border-radius: 6rem;
@@ -642,8 +667,8 @@ html {
 
           &::placeholder {
             color: rgba(0, 0, 0, 0.6);
-            font-weight: 300;
-            letter-spacing: 0.5px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
           }
         }
 
@@ -702,17 +727,20 @@ html {
     }
   }
 }
+// reply_preview_on
 .chat_input_box.reply_preview_on {
   border-radius: 0 0 2rem 2rem !important;
 }
 .chating_reply_message_preview_wrap {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
+  // position: absolute;
+  // bottom: 100%;
+  // left: 0;
+  width: calc(100% - 57px);
+  margin-left: 0.6rem;
   background-color: $fff;
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 0.4rem;
+  z-index: 333;
   display: none;
 
   .chating_reply_message_and_img_box {
@@ -752,7 +780,7 @@ html {
     }
   }
   .chating_reply_img_box {
-    width: 13rem;
+    width: 9rem;
   }
 }
 
@@ -800,7 +828,7 @@ html {
     border-radius: 50%;
     overflow: hidden;
     @include flex();
-    background-color: #00abee;
+    background-color: #00897b;
     border: 0.2rem solid $fff;
     z-index: 3;
     transform: scale(0);
@@ -808,7 +836,7 @@ html {
     transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
 
     svg {
-      stroke-width: 4px;
+      stroke-width: 3.5px;
       color: $fff;
     }
   }
@@ -1057,6 +1085,80 @@ html {
   }
   100% {
     left: 0;
+  }
+}
+
+.selected_list_action_bar_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0.6rem 1.2rem;
+  background-color: #00897b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+
+  .back_to_selection_bar {
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+    padding: 0.2rem;
+    cursor: pointer;
+
+    svg {
+      color: $fff;
+    }
+
+    &:hover {
+      svg {
+        color: #ddd;
+      }
+    }
+  }
+
+  .selected_list_count_and_option_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.2s ease-in-out;
+
+    .selected_count_box {
+      font-size: 1.8rem;
+      padding: 0 1rem 0 2rem;
+      color: $fff;
+    }
+
+    .selected_option_box {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      .each_optin_box {
+        width: 2.5rem;
+        height: 2.5rem;
+        overflow: hidden;
+        padding: 0.45rem;
+        cursor: pointer;
+        margin-right: 1.5rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        svg {
+          fill: $fff;
+        }
+
+        &:hover {
+          svg {
+            fill: #ddd;
+          }
+        }
+      }
+    }
   }
 }
 
