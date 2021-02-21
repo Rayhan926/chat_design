@@ -15392,11 +15392,13 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.a = exports.c = exports.end_move_message = exports.swipeMessage = exports.move_message_and_reply_icon = exports.obj = exports.message_selected_hash = exports.off_message_select_mode = exports.on_message_select_mode = exports.select_more_then_one_message = exports.isMessageSelectionStart = exports.message_select_mode_on = exports.off_chat_select_mode = exports.on_chat_select_mode = exports.select_more_then_one_chat = exports.isSelectionStart = exports.chat_select_mode_on = exports.clickElm = exports.chat_selected_hash = exports.chating_hash = exports.close_chating_section = exports.open_chating_section = exports.change_placeholder_all = exports.toggle_login_signup_section = exports.hide_profile_image_view_in_full_screen_mode = exports.img_in_fullscreen_hash = exports.profile_image_view_in_full_screen_mode = exports.force_hide_profile_image_view_mode = exports.hide_profile_image_view_mode = exports.view_profile_img_hash = exports.profile_image_view_mode = exports.change_placeholder = exports.hide_seacrh_input = exports.show_seacrh_input = exports.tab_3_hash = exports.tab_2_hash = exports.tab_1_hash = exports.set_Active_Tab_Bottom_Bar_Posotion = exports.set_ripple = exports.outside_close = exports.dropdown_autoset = exports.search_bar_hash = exports.get_hash = exports.set_hash = void 0;
+exports.a = exports.c = exports.close_user_profile_section = exports.open_user_profile_section = exports.end_move_message = exports.swipeMessage = exports.move_message_and_reply_icon = exports.obj = exports.message_selected_hash = exports.off_message_select_mode = exports.on_message_select_mode = exports.select_more_then_one_message = exports.isMessageSelectionStart = exports.message_select_mode_on = exports.off_chat_select_mode = exports.on_chat_select_mode = exports.select_more_then_one_chat = exports.isSelectionStart = exports.chat_select_mode_on = exports.clickElm = exports.chat_selected_hash = exports.chating_hash = exports.close_chating_section = exports.open_chating_section = exports.change_placeholder_all = exports.toggle_login_signup_section = exports.hide_profile_image_view_in_full_screen_mode = exports.img_in_fullscreen_hash = exports.profile_image_view_in_full_screen_mode = exports.force_hide_profile_image_view_mode = exports.hide_profile_image_view_mode = exports.view_profile_img_hash = exports.profile_image_view_mode = exports.change_placeholder = exports.hide_seacrh_input = exports.show_seacrh_input = exports.tab_3_hash = exports.tab_2_hash = exports.tab_1_hash = exports.set_Active_Tab_Bottom_Bar_Posotion = exports.set_ripple = exports.outside_close = exports.dropdown_autoset = exports.search_bar_hash = exports.get_hash = exports.set_hash = void 0;
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
 var _animejs = _interopRequireDefault(require("animejs"));
+
+var _featherIcons = _interopRequireDefault(require("feather-icons"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15599,8 +15601,7 @@ var hide_profile_image_view_mode = function hide_profile_image_view_mode(e) {
       height: currentHeight,
       borderRadius: "50%",
       left: currentLeft,
-      top: currentTop // opacity: "0",
-
+      top: currentTop
     });
   }
 
@@ -15616,20 +15617,22 @@ var hide_profile_image_view_mode = function hide_profile_image_view_mode(e) {
 exports.hide_profile_image_view_mode = hide_profile_image_view_mode;
 
 var force_hide_profile_image_view_mode = function force_hide_profile_image_view_mode() {
-  (0, _jquery.default)(".profile_img_view_mode_section .img_container").css({
-    width: currentWidth,
-    height: currentHeight,
-    borderRadius: "50%",
-    left: currentLeft,
-    top: currentTop
-  });
   setTimeout(function () {
-    (0, _jquery.default)(".profile_img_view_mode_section").animate({
-      opacity: "0"
-    }, 200, function () {
-      (0, _jquery.default)(".profile_img_view_mode_section").remove();
+    (0, _jquery.default)(".profile_img_view_mode_section .img_container").css({
+      width: currentWidth,
+      height: currentHeight,
+      borderRadius: "50%",
+      left: currentLeft,
+      top: currentTop
     });
-  }, 200);
+    setTimeout(function () {
+      (0, _jquery.default)(".profile_img_view_mode_section").animate({
+        opacity: "0"
+      }, 200, function () {
+        (0, _jquery.default)(".profile_img_view_mode_section").remove();
+      });
+    }, 200);
+  }, 1500);
 }; // let prevFullScreenImgSrcElm;
 
 
@@ -15659,7 +15662,7 @@ var profile_image_view_in_full_screen_mode = function profile_image_view_in_full
     width: "100%",
     left: "0",
     top: fromTopPosition
-  }, 450);
+  }, 500);
   set_hash("ImgInFullScreen");
 };
 
@@ -15703,7 +15706,7 @@ var isAlreadyAppended = false;
 var open_chating_section = function open_chating_section() {
   if (!isAlreadyAppended) {
     set_hash("chating");
-    var compo = "<div class=\"chating_wrap\">\n  <header class=\"chating_header_wrap\">\n    <div class=\"back_button_box\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-arrow-left\"><line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"></line><polyline points=\"12 19 5 12 12 5\"></polyline></svg>\n    </div>\n    <div class=\"chat_personn_name_box\">\n      <div class=\"img_box\">\n        <img src=\"./img/me.png\" alt=\"Me\" />\n      </div>\n      <div class=\"name_box\">\n        <h4 class=\"line_clamp_1\">\n          Rayhan Ahmed Rayhan Ahmed Rayhan Ahmed\n        </h4>\n        <p>Last seen: 10:12pm</p>\n      </div>\n    </div>\n    <div class=\"chat_personn_option_box\">\n      <div class=\"dropdown_component_wrap\">\n        <div class=\"dropdown_dot_icon\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-more-vertical\"><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle></svg>\n        </div>\n        <ul class=\"dropdown_ul\" data-dropdown-ul>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Profile</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </header>\n  <div class=\"chating_body_wrap\">\n    <div class=\"all_chats_show_wrap thin_scrollbar\">\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/1.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_unseen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\"  viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">Lorem ipsum dolor</p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n            Deleniti eaque beatae doloremque repellat impedit ipsum sit,\n            quas et aliquid, consequatur illum, iure modi a assumenda\n            iste. Voluptas eos aut quo\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_seen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"chats_send_from_wrap\">\n\n    <div class=\"chating_reply_message_preview_wrap\">\n              <div class=\"chating_reply_message_and_img_box\">\n                <div class=\"chating_reply_message_box\">\n                  <h4 class=\"reply_message_author_name\">Saymon</h4>\n                  <p class=\"reply_message\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,\n                    soluta.\n                  </p>\n                </div>\n                <div class=\"chating_reply_img_box\">\n                  <img src=\"./img/me.png\" alt=\"\" />\n                </div>\n                <div class=\"chating_reply_cancel_box\">\n                  <svg\n                    xmlns=\"http://www.w3.org/2000/svg\"\n                    viewBox=\"0 0 24 24\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    stroke-width=\"2\"\n                    stroke-linecap=\"round\"\n                    stroke-linejoin=\"round\"\n                    class=\"feather feather-x\"\n                  >\n                    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line>\n                    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line>\n                  </svg>\n                </div>\n              </div>\n            </div>\n    \n      <form action=\"#\">\n        <div class=\"chat_from_inner\">\n          <div class=\"chat_input_box\">\n            \n            <div class=\"chat_input_box_corner\">\n              <div class=\"top_shadow\"></div>\n              <div class=\"bottom_right_shadow\"></div>\n            </div>\n            <div class=\"chat_emoji_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-smile\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg>\n            </div>\n            <input type=\"text\" placeholder=\"Type a message\" />\n            <div class=\"chat_send_img_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-camera\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>\n            </div>\n          </div>\n          <div class=\"chat_submit_box\">\n            <button type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-mic\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg></button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
+    var compo = "<div class=\"chating_wrap\">\n  <header class=\"chating_header_wrap\">\n    <div class=\"back_button_box\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-arrow-left\"><line x1=\"19\" y1=\"12\" x2=\"5\" y2=\"12\"></line><polyline points=\"12 19 5 12 12 5\"></polyline></svg>\n    </div>\n    <div class=\"chat_personn_name_box\">\n      <div class=\"img_box\">\n        <img src=\"./img/1.png\" alt=\"Me\" />\n      </div>\n      <div class=\"name_box\">\n        <h4 class=\"line_clamp_1\">\n          Rayhan Ahmed Rayhan Ahmed Rayhan Ahmed\n        </h4>\n        <p>Last seen: 10:12pm</p>\n      </div>\n    </div>\n    <div class=\"chat_personn_option_box\">\n      <div class=\"dropdown_component_wrap\">\n        <div class=\"dropdown_dot_icon\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-more-vertical\"><circle cx=\"12\" cy=\"12\" r=\"1\"></circle><circle cx=\"12\" cy=\"5\" r=\"1\"></circle><circle cx=\"12\" cy=\"19\" r=\"1\"></circle></svg>\n        </div>\n        <ul class=\"dropdown_ul\" data-dropdown-ul>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Profile</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n          <li>\n            <a href=\"#\" data-ripple data-ripple-bg=\"rgba(0, 42, 70, 0.1)\">\n              <p class=\"dropdown_text_box\">Home</p>\n            </a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </header>\n  <div class=\"chating_body_wrap\">\n    <div class=\"all_chats_show_wrap thin_scrollbar\">\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/1.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <img src=\"./img/me.png\" alt=\"Me\" />\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur adipisicing elit.\n            Animi dolorem labore et at facere saepe, fuga beatae omnis,\n            esse dolor, veniam nemo excepturi laborum. Exercitationem!\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_unseen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\"  viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">Lorem ipsum dolor</p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_my_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\">\n            <!-- <img src=\"./img/me.png\" alt=\"Me\" /> -->\n          </div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor, sit amet consectetur\n          </p>\n        </div>\n      </div>\n      <div class=\"chat_wrap from_other_side\">\n      <div class=\"forward_activate_icon_box\">\n          <svg enable-background=\"new 0 0 24 24\" height=\"512\" viewBox=\"0 0 24 24\" width=\"512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m10 7.002v-4.252c0-.301-.181-.573-.458-.691-.276-.117-.599-.058-.814.153l-8.5 8.25c-.146.141-.228.335-.228.538s.082.397.228.538l8.5 8.25c.217.21.539.269.814.153.277-.118.458-.39.458-.691v-4.25h1.418c4.636 0 8.91 2.52 11.153 6.572l.021.038c.134.244.388.39.658.39.062 0 .124-.007.186-.023.332-.085.564-.384.564-.727 0-7.774-6.257-14.114-14-14.248z\"/></svg>\n        </div>\n        <div class=\"chat_text_or_image_wrap\" data-long-press-delay=\"400\">\n          <div class=\"chating_image_box\"></div>\n          <p class=\"chat_text_p\">\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n            Deleniti eaque beatae doloremque repellat impedit ipsum sit,\n            quas et aliquid, consequatur illum, iure modi a assumenda\n            iste. Voluptas eos aut quo\n          </p>\n          <div class=\"chat_sent_time_and_seen_unseen_box\">\n            <span class=\"chat_sent_time\">11.15 AM</span>\n            <span class=\"chat_seen_unseen status_seen\">\n              <svg\n                fill=\"#000000\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 24 24\"\n                class=\"unseen_check\"\n              >\n                <path\n                  d=\"M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z\"\n                />\n              </svg>\n\n              <svg\n                xmlns=\"http://www.w3.org/2000/svg\"\n                viewBox=\"0 0 594.149 594.149\"\n                class=\"seen_check\"\n              >\n                <g>\n                  <g>\n                    <path\n                      d=\"M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1\nl-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z\"\n                    />\n                  </g>\n                </g>\n              </svg>\n            </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"chats_send_from_wrap\">\n\n    <div class=\"chating_reply_message_preview_wrap\">\n              <div class=\"chating_reply_message_and_img_box\">\n                <div class=\"chating_reply_message_box\">\n                  <h4 class=\"reply_message_author_name\">Saymon</h4>\n                  <p class=\"reply_message\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,\n                    soluta.\n                  </p>\n                </div>\n                <div class=\"chating_reply_img_box\">\n                  <img src=\"./img/me.png\" alt=\"\" />\n                </div>\n                <div class=\"chating_reply_cancel_box\">\n                  <svg\n                    xmlns=\"http://www.w3.org/2000/svg\"\n                    viewBox=\"0 0 24 24\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    stroke-width=\"2\"\n                    stroke-linecap=\"round\"\n                    stroke-linejoin=\"round\"\n                    class=\"feather feather-x\"\n                  >\n                    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line>\n                    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line>\n                  </svg>\n                </div>\n              </div>\n            </div>\n    \n      <form action=\"#\">\n        <div class=\"chat_from_inner\">\n          <div class=\"chat_input_box\">\n            \n            <div class=\"chat_input_box_corner\">\n              <div class=\"top_shadow\"></div>\n              <div class=\"bottom_right_shadow\"></div>\n            </div>\n            <div class=\"chat_emoji_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-smile\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><line x1=\"9\" y1=\"9\" x2=\"9.01\" y2=\"9\"></line><line x1=\"15\" y1=\"9\" x2=\"15.01\" y2=\"9\"></line></svg>\n            </div>\n            <textarea  placeholder=\"Type a message\"></textarea>\n            <!--<input type=\"text\" placeholder=\"Type a message\" />-->\n            <div class=\"chat_send_img_box\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-camera\"><path d=\"M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z\"></path><circle cx=\"12\" cy=\"13\" r=\"4\"></circle></svg>\n            </div>\n          </div>\n          <div class=\"chat_submit_box\">\n            <button type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-mic\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg></button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
     (0, _jquery.default)(".chat_wrapper").append(compo);
     isAlreadyAppended = true;
   }
@@ -15854,7 +15857,7 @@ var select_more_then_one_message = function select_more_then_one_message(e) {
             (0, _jquery.default)(thisElm).css({
               pointerEvents: "all"
             });
-          }, 200);
+          }, 500);
           messageSelectedCount--;
         }
       }
@@ -15993,6 +15996,46 @@ var end_move_message = function end_move_message(e) {
 
 exports.end_move_message = end_move_message;
 
+var open_user_profile_section = function open_user_profile_section(elm) {
+  var parentWrapOffset = (0, _jquery.default)(".chat_wrapper").offset();
+  var fromTop = elm.offset().top - parentWrapOffset.top + "px";
+  var fromLeft = elm.offset().left - parentWrapOffset.left + "px";
+  var imgSrc = elm.find("img").attr("src");
+  var compo = "<div class=\"user_profile_view_section_wrap\">\n    <div class=\"back_to_user_profile_button_box\">\n      <i data-feather=\"arrow-left\"></i>\n    </div>\n    <div class=\"user_profile_picture_wrap\">\n      <div class=\"profile_pic_img_box\">\n        <img src=\"".concat(imgSrc, "\" alt=\"\" />\n      </div>\n      <div class=\"user_name_box\">\n        <h2>Rayhan Ahmed</h2>\n      </div>\n    </div>\n    <div class=\"user_profile_details_wrap\"></div>\n  </div>");
+  (0, _jquery.default)(".chat_wrapper").append(compo);
+
+  _featherIcons.default.replace();
+
+  (0, _jquery.default)(".profile_pic_img_box").css({
+    transform: "translateX(".concat(fromLeft, ") translateY(").concat(fromTop, ")"),
+    opacity: "1"
+  });
+  setTimeout(function () {
+    (0, _jquery.default)(".user_profile_view_section_wrap").addClass("show");
+    (0, _animejs.default)({
+      targets: ".profile_pic_img_box",
+      width: "100%",
+      height: "100%",
+      borderRadius: "0px",
+      translateX: 0,
+      translateY: 0,
+      duration: 300,
+      easing: "linear"
+    });
+  }, 20);
+};
+
+exports.open_user_profile_section = open_user_profile_section;
+
+var close_user_profile_section = function close_user_profile_section() {
+  (0, _jquery.default)(".user_profile_view_section_wrap").addClass("slideToHide");
+  setTimeout(function () {
+    (0, _jquery.default)(".user_profile_view_section_wrap").remove();
+  }, 250);
+};
+
+exports.close_user_profile_section = close_user_profile_section;
+
 var c = function c(e) {
   console.log(e);
 };
@@ -16004,7 +16047,7 @@ var a = function a(e) {
 };
 
 exports.a = a;
-},{"jquery":"../../node_modules/jquery/dist/jquery.js","animejs":"../../node_modules/animejs/lib/anime.es.js"}],"app.js":[function(require,module,exports) {
+},{"jquery":"../../node_modules/jquery/dist/jquery.js","animejs":"../../node_modules/animejs/lib/anime.es.js","feather-icons":"../../node_modules/feather-icons/dist/feather.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _jquery = _interopRequireDefault(require("jquery"));
@@ -16204,8 +16247,8 @@ var parentDiv = ".input_filed_wrap";
 // Profile Image View Mode On Full Screen Mode From Chat List ----Start----
 
 (0, _jquery.default)(document).on("click", ".profile_img_view_mode_section .img_container", function (e) {
-  (0, _functions.force_hide_profile_image_view_mode)();
   (0, _functions.profile_image_view_in_full_screen_mode)(e);
+  (0, _functions.force_hide_profile_image_view_mode)();
 }); // Profile Image View Mode On Full Screen Mode From Chat List ----End----
 // Profile Image View Mode On Full Screen Mode From Chating Section ----Start----
 
@@ -16251,6 +16294,7 @@ var parentDiv = ".input_filed_wrap";
 (0, _jquery.default)(document).on("click", ".chating_header_wrap .back_button_box", function () {
   (0, _functions.close_chating_section)();
 }); // Close Chating Section ----End----
+// Show And Hide All Dropdwn ----Start----
 
 var wrap = ".dropdown_component_wrap";
 (0, _jquery.default)(document).on("click", wrap, function (e) {
@@ -16258,13 +16302,31 @@ var wrap = ".dropdown_component_wrap";
 });
 (0, _jquery.default)(document).on("click", function (e) {
   (0, _functions.outside_close)(wrap, wrap, "showDown showUp", e);
-});
+}); // Show And Hide All Dropdwn ----End----
+// Set Ripple ----Start----
+
 (0, _jquery.default)(document).on("click", "[data-ripple]", function (e) {
   (0, _functions.set_ripple)(e);
+}); // Set Ripple ----End----
+
+(0, _jquery.default)(document).on("click", ".chat_personn_name_box .img_box", function (e) {
+  (0, _functions.open_user_profile_section)((0, _jquery.default)(e.currentTarget));
 });
+(0, _jquery.default)(document).on("click", ".back_to_user_profile_button_box", function () {
+  (0, _functions.close_user_profile_section)();
+});
+(0, _jquery.default)(document).on("click", ".chat_personn_name_box", function (e) {
+  var childrenElm = (0, _jquery.default)(e.currentTarget).find(".img_box");
+  (0, _functions.open_user_profile_section)(childrenElm);
+});
+(0, _jquery.default)(document).on("click", ".user_profile_picture_wrap .profile_pic_img_box", function (e) {
+  (0, _functions.profile_image_view_in_full_screen_mode)(e);
+}); // Tab Pagination Bottom Line Position Set ----Start----
+
 (0, _jquery.default)(document).on("click", ".swiper-pagination-bullet", function () {
   (0, _functions.set_Active_Tab_Bottom_Bar_Posotion)();
-});
+}); // Tab Pagination Bottom Line Position Set ----End----
+
 (0, _jquery.default)(".toggle_section").on("click", function (e) {
   (0, _functions.toggle_login_signup_section)(e);
 });
@@ -16322,7 +16384,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1437" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14741" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
